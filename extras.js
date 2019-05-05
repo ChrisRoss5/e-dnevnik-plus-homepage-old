@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+  console.log("HELLO")
   const buttons = $(".tab-button")[0];
   console.log(buttons)
   $('.text-primary display-7').on('click', function() {
