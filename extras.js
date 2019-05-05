@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-  console.log("HELLO")
+window.addEventListener("load", function () {
   const buttons = $(".tab-button")[0];
   console.log(buttons)
   $('.text-primary display-7').on('click', function() {
@@ -18,6 +17,12 @@ document.addEventListener("DOMContentLoaded", function() {
   $("amp-social-share").on('click', function() {
     if (this.type == "email") {
       window.location.assign("mailto:?subject=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus&body=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
+    } else if (this.type == "facebook") {
+      window.location.assign();
+    } else if (this.type == "linkedin") {
+      window.location.assign();
+    } else {
+      window.location.assign();
     }
     return false;
   });
