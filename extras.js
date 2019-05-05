@@ -2,7 +2,9 @@ window.addEventListener("load", function () {
   const buttons = $(".tab-button")[0];
   console.log(buttons)
   $('.text-primary display-7').on('click', function() {
+    console.log("HI");
     $("html, body").animate({scrollTop: $($("#tab1-i")).position().top}, 1000);
+    $(".close-sidebar")[0].click();
     if (this.textContent == "Instalacija i privatnost") {
       buttons[1].click();
     } else if (this.textContent == "Mogućnosti") {
@@ -16,6 +18,7 @@ window.addEventListener("load", function () {
   });
   $("amp-social-share").on('click', function() {
     if (this.type == "email") {
+      console.log("HI2");
       window.location.assign("mailto:?subject=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus&body=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
     } else if (this.type == "facebook") {
       window.location.assign();
