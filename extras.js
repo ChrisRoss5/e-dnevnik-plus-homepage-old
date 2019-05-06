@@ -14,19 +14,16 @@ window.addEventListener("load", function () {
     }
     return false;
   });
-  var share = $("amp-social-share");
-  console.log(share)
   $("amp-social-share").on('click', function() {
     var type = $(this).attr("type")
     if (type == "email") {
-      console.log("HI2");
       window.location.assign("mailto:?subject=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus&body=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
     } else if (type == "facebook") {
-      window.location.assign("https://www.facebook.com/sharer/sharer.php?u=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
+      window.open("https://www.facebook.com/sharer/sharer.php?u=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
     } else if (type == "linkedin") {
-      window.location.assign("https://www.linkedin.com/shareArticle?mini=true&url=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe&title=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus.&summary=Napredne%20postavke%20e-Dnevnika%20za%20u%C4%8Denike%20i%20roditelje&source=ednevnik.plus");
+      window.open("https://www.linkedin.com/shareArticle?mini=true&url=https%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe&title=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus.&summary=Napredne%20postavke%20e-Dnevnika%20za%20u%C4%8Denike%20i%20roditelje&source=ednevnik.plus");
     } else {
-      window.location.assign("https://twitter.com/home?status=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus%3A%0Ahttps%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
+      window.open("https://twitter.com/home?status=Odli%C4%8Dna%20ekstenzija%20za%20Chrome%20%E2%80%94%20e-Dnevnik%20Plus%3A%0Ahttps%3A//chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe");
     }
     return false;
   });
