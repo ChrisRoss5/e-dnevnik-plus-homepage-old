@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
   const buttons = $(".tab-button");
-  console.log(buttons)  $('.text-primary').on('click', function() {
+  $('.text-primary').on('click', function() {
     $("html, body").animate({scrollTop: $($("#tab1-i")).position().top}, 1000);
     $(".close-sidebar")[0].click();
     if (this.textContent == "Instalacija i privatnost") {
