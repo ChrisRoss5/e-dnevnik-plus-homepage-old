@@ -34,12 +34,6 @@ body{font-family: Roboto;}blockquote{border-color: #235694;}.display-1{font-fami
   <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
   <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
   <script async src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script>
-    function clickHandler() {
-      alert("something");
-    }
-	</script>
-  
   
 </head>
 <body><div id="top-page"></div>                                         <amp-animation id="showScrollToTopAnim" layout="nodisplay">                                             <script type="application/json">                                             {                                                 "duration": "200ms",                                                 "fill": "both",                                                 "iterations": "1",                                                 "direction": "alternate",                                                 "animations": [                                                     {                                                         "selector": "#scrollToTopButton",                                                         "keyframes": [                                                             { "opacity": "0.4", "visibility": "visible" }                                                         ]                                                     }                                                 ]                                             }                                             </script>                                         </amp-animation>                                         <amp-animation id="hideScrollToTopAnim" layout="nodisplay">                                             <script type="application/json">                                             {                                                 "duration": "200ms",                                                 "fill": "both",                                                 "iterations": "1",                                                 "direction": "alternate",                                                 "animations": [                                                     {                                                         "selector": "#scrollToTopButton",                                                         "keyframes": [                                                             { "opacity": "0", "visibility": "hidden" }                                                         ]                                                     }                                                 ]                                             }                                             </script>                                         </amp-animation>                                         <div id="scrollToTopMarker">                                             <amp-position-observer on="enter:hideScrollToTopAnim.start; exit:showScrollToTopAnim.start" layout="nodisplay">                                             </amp-position-observer>                                         </div><amp-sidebar id="sidebar" class="cid-rpCfWgEM4m" layout="nodisplay" side="right">
@@ -187,8 +181,7 @@ body{font-family: Roboto;}blockquote{border-color: #235694;}.display-1{font-fami
 <li class="mbr-fonts-style mbr-white display-7">Prvo dopuštenje vas traži za mogućnost mijenjanja sadržaja određenih web-stranica i ključni je dio ekstenzije.</li>
 <li class="mbr-fonts-style mbr-white display-7">Drugo dopuštenje vas traži za čitanje vaše povijesti pretraživanja, a služi da se ekstenzija aktivira samo kad ste na stranici e-Dnevnika.</li></ul>
 <p class="mbr-fonts-style mbr-white display-7" style="padding: 0 !important;">To su dva najčešća dopuštenja svih ekstenzija na Chrome Store i bez njih 95% drugih ekstenzija ne bi radilo.<br>
-<br><strong>Vaši podaci su sigurni i nigdje se ne šalju.</strong>
-<br>Po zakonu je potrebno izraditi Politiku Privatnosti ukoliko aplikacija prikuplja osobne podatke korisnika, no ja ne prikupljam nikakve podatke i stoga je nije potrebno praviti.</p>
+	<br><strong>Više o korištenju vaših osobnih podataka možete pročitati u <a href="#">Politici privatnosti.</a></strong>
 </p>
             </div>
 
