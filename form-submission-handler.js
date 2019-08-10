@@ -1,5 +1,5 @@
 (function() {
-  
+
   // get all data in form and return object
   function getFormData(form) {
     var elements = form.elements;
@@ -25,7 +25,7 @@
     var formData = {};
     fields.forEach(function(name){
       var element = elements[name];
-      
+
       // singular form elements just have one value
       formData[name] = element.value;
 
@@ -53,6 +53,17 @@
   }
 
   function handleFormSubmit(event) {  // handles form submit without any jquery
+    let f = document.getElementsByTagName("form")[0];
+    f.style.opacity = 0;
+    setTimeout(() => {
+      f.remove();
+      let content = document.getElementsByClassName("container")[0];
+      content.innerHTML += "<h1 class='thankYou'>Hvala na odgovoru!</h1>";
+      setTimeout(() => {
+        document.getElementsByClassName("thankYou")[0].style.opacity = 1;
+      }, 250);
+    }, 250);
+
     event.preventDefault();           // we are submitting via xhr below
     var form = event.target;
     var formData = getFormData(form);
@@ -69,35 +80,18 @@
     xhr.open('POST', url);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        console.log(xhr.status, xhr.statusText);
-        console.log(xhr.responseText);
-        form.reset();
-        var formElements = form.querySelector(".form-elements")
-        if (formElements) {
-          formElements.style.display = "none"; // hide form
-        }
-        var thankYouMessage = form.querySelector(".thankyou_message");
-        if (thankYouMessage) {
-          thankYouMessage.style.display = "block";
-        }
-        return;
-    };
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
         return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
     }).join('&');
     xhr.send(encoded);
   }
-  
+
   function loaded() {
     console.log("Contact form submission handler loaded successfully.");
-    // bind to the submit event of our form
-    var forms = document.querySelectorAll("form.gform");
-    for (var i = 0; i < forms.length; i++) {
-      forms[i].addEventListener("submit", handleFormSubmit, false);
-    }
-  };
+    document.getElementsByTagName("form")[0]
+      .addEventListener("submit", handleFormSubmit, false);
+  }
   document.addEventListener("DOMContentLoaded", loaded, false);
 
   function disableAllButtons(form) {
