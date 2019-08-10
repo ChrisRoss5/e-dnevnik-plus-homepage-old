@@ -4,13 +4,14 @@
 <head>
 <title>Deinstalacija</title>
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="assets/images/original-logo-90x90.png" type="image/x-icon">
+<link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
   <style>
   body {color: white;
         background-color: #232323;
         font-family: "Trebuchet MS", "Helvetica", sans-serif;
         font-size: 40px;}
-  h1 {padding-top: 30px;}
+  h1 {font-size: 80px;
+      padding-top: 30px;}
   a {color: #3391FF;}
   .container {
     max-width: 80%;
@@ -99,18 +100,19 @@
     resize: none;
     padding: 15px;
     margin-top: 20px;
-    transition: 250ms;
   }
   textarea:hover {
     cursor: pointer;
     background-color: #424141;
     border-radius: 10px;
+    transition: 250ms;
   }
   textarea:focus {
     cursor: text;
     background-color: #232323;
     box-shadow: inset 0 0 0 2px #235694;
     border-radius: 10px;
+    transition: 250ms;
   }
   button {
     font-family: "Trebuchet MS", "Helvetica", sans-serif;
@@ -122,38 +124,38 @@
     border: none;
     transform: translateY(-16px);
     border-radius: 10px;
-    transition: 250ms;
   } button:hover {
     background-color: gray;
   }
   textarea, button {
     opacity: 0;
     pointer-events: none;
+    transition: 250ms;
+  }
+  form {
+    transition: 250ms;
+  }
+  .thankYou {
+    opacity: 0;
+    transition: 250ms;
   }
 
   </style>
 
   <script>
     window.onload = function() {
-      let option;
-      let radios = document.getElementsByName("r");
-      let comment = document.getElementsByName("comment")[0];
+      let radios = document.getElementsByName("Option: ");
+      let comment = document.getElementsByName("Comment: ")[0];
       let button = document.getElementsByTagName("button")[0];
       for (let i = 0; i < radios.length; i++) {
-        document.getElementsByName("r")[i].addEventListener("click", getOption);
+        radios[i].addEventListener("click", showCommentAndSubmitButton);
       }
-      function getOption() {
+      function showCommentAndSubmitButton() {
         if (!comment.style.opacity) {
           comment.style.opacity = button.style.opacity = 1;
           comment.style.pointerEvents = button.style.pointerEvents = "auto";
         }
       }
-/*       document.getElementsByTagName("button")[0].addEventListener("click", function() {
-        comment.value = option + "&#10;" + comment.value;
-
-        console.log(comment.value)
-      }) */
-
     }
   </script>
 </head>
@@ -161,7 +163,7 @@
 <body>
 <div class="container">
 
-<h1 style="font-size: 80px;">Doviđenja!</a></h1>
+<h1>Doviđenja!</a></h1>
 Hvala vam što ste koristili
 <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe">
 e-Dnevnik Plus</a>.
@@ -170,23 +172,20 @@ e-Dnevnik Plus</a>.
 <form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST">
   <div style="padding-top: 30px;">
     <label class="radio">
-        <input type="radio" name="r" value="PERFECT">
+        <input type="radio" name="Option: " value="PERFECT&#10;">
         <span>Školovanje je završeno i više mi ne treba.</span>
     </label>
     <label class="radio">
-        <input type="radio" name="r" value="NOT GOOD">
+        <input type="radio" name="Option: " value="NOT GOOD&#10;">
         <span>Ne sviđa mi se, očekivao sam više.</span>
     </label>
     <label class="radio">
-        <input type="radio" name="r" value="ERROR">
+        <input type="radio" name="Option: " value="ERROR&#10;">
         <span>Ne radi ispravno.</span>
     </label>
   </div>
-  <textarea name="comment" type="text" placeholder="Dodaj komentar... (neobavezno)"></textarea>
+  <textarea name="Comment: " type="text" placeholder="Dodaj komentar... (neobavezno)"></textarea>
   <button type="submit">Pošalji</button>
-  <div style="display:none" class="thankyou_message">
-    <h1 style="font-size: 80px; position: absolute; top: 50%; left: 50%;">Hvala na odgovoru!</h1>
-   </div>
 </form>
 
 </div>
@@ -196,7 +195,7 @@ e-Dnevnik Plus</a>.
 <a href="https://www.instagram.com/kristijanross/">kristijan.ros@gmail.com</a>
 </div>
 
-<script data-cfasync="false" type="text/javascript" src="../form-submission-handler.js"></script>
+<script data-cfasync="false" type="text/javascript" src="temp.js"></script>
 </body>
 
 </html>
