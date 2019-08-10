@@ -126,7 +126,7 @@
   } button:hover {
     background-color: gray;
   }
-  form {
+  textarea, button {
     opacity: 0;
     pointer-events: none;
   }
@@ -137,22 +137,22 @@
     window.onload = function() {
       let option;
       let radios = document.getElementsByName("r");
-      let form = document.getElementsByTagName("form")[0];
-      let comment = document.getElementsByTagName('textarea')[0];
+      let comment = document.getElementsByName("comment")[0];
+      let button = document.getElementsByTagName("button")[0];
       for (let i = 0; i < radios.length; i++) {
         document.getElementsByName("r")[i].addEventListener("click", getOption);
       }
       function getOption() {
-        option = ["GOOD", "NOT GOOD", "ERROR"][parseInt(this.value)];
-        if (!form.style.opacity) {
-          form.style.opacity = 1;
-          form.style.pointerEvents = "auto";
+        if (!comment.style.opacity) {
+          comment.style.opacity = button.style.opacity = 1;
+          comment.style.pointerEvents = button.style.pointerEvents = "auto";
         }
-        console.log(option)
       }
-      document.getElementsByTagName("button")[0].addEventListener("click", function() {
+/*       document.getElementsByTagName("button")[0].addEventListener("click", function() {
         comment.value = option + "&#10;" + comment.value;
-      })
+
+        console.log(comment.value)
+      }) */
 
     }
   </script>
@@ -165,24 +165,28 @@
 Hvala vam što ste koristili
 <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe">
 e-Dnevnik Plus</a>.
-<div style="padding-top: 30px;">
+
+
+<form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST">
+  <div style="padding-top: 30px;">
     <label class="radio">
-        <input type="radio" name="r" value="0">
+        <input type="radio" name="r" value="PERFECT">
         <span>Školovanje je završeno i više mi ne treba.</span>
     </label>
     <label class="radio">
-        <input type="radio" name="r" value="1">
+        <input type="radio" name="r" value="NOT GOOD">
         <span>Ne sviđa mi se, očekivao sam više.</span>
     </label>
     <label class="radio">
-        <input type="radio" name="r" value="2">
+        <input type="radio" name="r" value="ERROR">
         <span>Ne radi ispravno.</span>
     </label>
-</div>
-
-<form action="https://formspree.io/kristijan.ros@gmail.com" method="POST">
-  <textarea type="text" placeholder="Dodaj komentar... (neobavezno)"></textarea>
+  </div>
+  <textarea name="comment" type="text" placeholder="Dodaj komentar... (neobavezno)"></textarea>
   <button type="submit">Pošalji</button>
+  <div style="display:none" class="thankyou_message">
+    <h1 style="font-size: 80px; position: absolute; top: 50%; left: 50%;">Hvala na odgovoru!</h1>
+   </div>
 </form>
 
 </div>
@@ -192,6 +196,7 @@ e-Dnevnik Plus</a>.
 <a href="https://www.instagram.com/kristijanross/">kristijan.ros@gmail.com</a>
 </div>
 
+<script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 </body>
 
 </html>
