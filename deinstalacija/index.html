@@ -124,7 +124,7 @@
     border: none;
     transform: translateY(-16px);
     border-radius: 10px;
-  } button:hover {
+  } button:not(:disabled):hover {
     background-color: gray;
   }
   textarea, button {
@@ -157,15 +157,13 @@
         radios[i].addEventListener("click", showCommentAndSubmitButton);
       }
       comment.addEventListener("input", function() {
-        if (!comment.value.length && needComment) {
-          button.disabled = true;
-        } else {
-          button.disabled = false;
-        }
+         button.disabled = !comment.value.length && needComment;
       });
       function showCommentAndSubmitButton() {
         if (this.value == "PERFECT") {
           comment.placeholder = "Dodaj komentar... (neobavezno)";
+		  console.log("LMAO")
+		  button.disabled = false;
         } else {
           comment.placeholder = "Dodaj komentar... (obavezno)";
           button.disabled = true; needComment = true;
