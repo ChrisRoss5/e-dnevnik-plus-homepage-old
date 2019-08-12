@@ -162,11 +162,10 @@
       function showCommentAndSubmitButton() {
         if (this.value == "PERFECT") {
           comment.placeholder = "Dodaj komentar... (neobavezno)";
-		  console.log("LMAO")
-		  button.disabled = false;
+		      button.disabled = needComment = false;
         } else {
           comment.placeholder = "Dodaj komentar... (obavezno)";
-          button.disabled = true; needComment = true;
+          button.disabled = needComment = true;
         }
         if (!comment.style.opacity) {
           comment.style.opacity = button.style.opacity = 1;
