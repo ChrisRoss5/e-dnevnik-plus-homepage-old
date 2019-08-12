@@ -143,19 +143,41 @@
   </style>
 
   <script>
+    window.onbeforeunload = function (e) {
+        return "Molim vas ispunite upitnik.";
+    };
+
     window.onload = function() {
       let radios = document.getElementsByName("Option: ");
       let comment = document.getElementsByName("Comment: ")[0];
       let button = document.getElementsByTagName("button")[0];
+      let needComment = false;
+
       for (let i = 0; i < radios.length; i++) {
         radios[i].addEventListener("click", showCommentAndSubmitButton);
       }
+      comment.addEventListener("input", function() {
+        if (!comment.value.length && needComment) {
+          button.disabled = true;
+        } else {
+          button.disabled = false;
+        }
+      });
       function showCommentAndSubmitButton() {
+        if (this.value == "PERFECT") {
+          comment.placeholder = "Dodaj komentar... (neobavezno)";
+        } else {
+          comment.placeholder = "Dodaj komentar... (obavezno)";
+          button.disabled = true; needComment = true;
+        }
         if (!comment.style.opacity) {
           comment.style.opacity = button.style.opacity = 1;
           comment.style.pointerEvents = button.style.pointerEvents = "auto";
         }
       }
+    }
+    function disableBeforeUnload() {
+      window.onbeforeunload = null;
     }
   </script>
 </head>
@@ -169,22 +191,22 @@ Hvala vam što ste koristili
 e-Dnevnik Plus</a>.
 
 
-<form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST">
+<form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST" onsubmit="javascript:disableBeforeUnload()">
   <div style="padding-top: 30px;">
     <label class="radio">
-        <input type="radio" name="Option: " value="PERFECT&#10;">
+        <input type="radio" name="Option: " value="PERFECT">
         <span>Školovanje je završeno i više mi ne treba.</span>
     </label>
     <label class="radio">
-        <input type="radio" name="Option: " value="NOT GOOD&#10;">
+        <input type="radio" name="Option: " value="NOT GOOD">
         <span>Ne sviđa mi se, očekivao sam više.</span>
     </label>
     <label class="radio">
-        <input type="radio" name="Option: " value="ERROR&#10;">
+        <input type="radio" name="Option: " value="ERROR">
         <span>Ne radi ispravno.</span>
     </label>
   </div>
-  <textarea name="Comment: " type="text" placeholder="Dodaj komentar... (neobavezno)"></textarea>
+  <textarea name="Comment: " type="text"></textarea>
   <button type="submit">Pošalji</button>
 </form>
 
