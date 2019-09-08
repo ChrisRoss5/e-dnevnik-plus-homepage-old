@@ -5,6 +5,10 @@
 <title>Ažuriran!</title>
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
   <style>
   body {
     font-family: "Trebuchet MS", "Helvetica", sans-serif;
@@ -75,12 +79,27 @@
     from {width: 0%;}
     to {width:100%;}
   }
+  .teaser {
+    padding-bottom: 150px;
+    font-weight: 900;
+    color: #235694;
+    font-size: 25px;
+  }
 
   </style>
 
   <script>
     window.onload = (event) => {
       document.getElementsByClassName("title")[0].style.opacity = 1;
+      let page = $("html, body"); page.animate({ scrollTop: 0 }, 500);
+
+      setTimeout(() => {
+        page.animate({ scrollTop: $(document).height() }, 35000);
+        page.on("scroll mousedown wheel DOMMouseScroll mousewheel keyup touchmove", () => {
+          page.stop();
+        });
+      }, 1500);
+
     };
   </script>
 </head>
@@ -96,14 +115,14 @@
   <div class="imgTitle">Dodana sveukupna statistika na odabiru razreda:</div>
   <img src="../assets/images/stats.png" alt="Slika">
 
-  <div class="imgTitle">Dodan kalkulator bodova za upis u srednju školu (ispunjava se sam!):</div>
+  <div class="imgTitle">Dodan kalkulator bodova za upis u srednju školu:</div>
   <img src="../assets/images/calc.png" alt="Slika">
 
   <div class="imgTitle" style="padding-bottom: 20px;">Dodana opcija primanja obavijesti za određene datume:</div>
   <img src="../assets/images/notif.png" alt="Slika"><br>
   <img src="../assets/images/notif2.png" alt="Slika">
 
-  <div style="padding-top: 50px; padding-bottom: 30px; margin: 0 auto; width: 943px;"><strong>Ispravljene su sljedeće greške:</strong>
+  <div style="padding-top: 50px; padding-bottom: 30px; margin: 0 auto; width: 50%;"><strong>Ispravljene su sljedeće greške:</strong>
     <ul style="text-align: left;">
       <li>Poveznica za e-Dnevnik u skočnom prozoru ne radi u nekim slučajevima.</li>
       <li>Konstantno preskakanje odabira razreda kad je opcija za automatsko otvaranje omogućena.</li>
@@ -116,7 +135,8 @@
   </div>
 
   <div style="padding-bottom: 10px;">Podijeli prijateljima kako bi i oni imali uspješniju novu školsku godinu, a sada:</div>
-  <a href="https://ocjene.skole.hr" style="padding-bottom: 150px; font-weight: 900; color: #235694; font-size: 25px;">pregledaj novi e-Dnevnik!</a>
+  <a href="https://ocjene.skole.hr" class="teaser">Pregledaj novi e-Dnevnik!</a>
+
 </div>
 
 
