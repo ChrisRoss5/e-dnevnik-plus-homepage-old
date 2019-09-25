@@ -8,7 +8,7 @@
   <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
   <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
   <meta name="google" content="notranslate">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="assets/images/original-logo-90x90.png" type="image/x-icon">
@@ -165,7 +165,7 @@
       float: left;
       cursor: pointer;
       transition: all 0.5s;
-      opacity: 0.35;
+      opacity: 0.5;
     }
 
     .slider label:hover {
@@ -278,6 +278,7 @@
 
     .comingSoon {
       display: inline-block;
+      vertical-align: bottom;
       height: 82px;
       width: 50%;
       text-align: center;
@@ -305,13 +306,85 @@
       padding-top: 25px;
       padding-bottom: 25px;
     }
+
+    @media (max-width: 750px) {
+
+      body {
+        background-color: white;
+        position: relative;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      button {
+        font-size: 20px !important;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: -60px;
+        width: 751px;
+        height: 422.44px;
+      }
+
+      .downloadButton {
+        font-size: 30px;
+      }
+
+      .menu a {
+        font-size: 20px;
+        transition: all 0s;
+      }
+
+      .video {
+        width: 751px;
+        height: 422.44px;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .slider {
+        width: unset;
+        padding-top: 56.25%;
+      }
+
+      .slider label {
+        margin: 18px 0 0 2px;
+      }
+
+      .wrap {
+        width: unset;
+        margin: unset;
+        background-color: unset;
+        border: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        border-bottom: 2px solid gray;
+      }
+
+      .email, .message {
+        width: 100%;
+        font-size: 20px;
+      }
+
+      #footer {
+        font-size: 10px;
+      }
+
+    }
   </style>
 
   <script type="text/javascript">
     window.onload = () => {
 
-      let images = document.getElementsByTagName("img");
-      console.log(images);
       let menu = document.getElementsByClassName("menu")[0].children;
       let menuContainer = document.getElementsByClassName("menuContent")[0];
       let menuContent = menuContainer.children;
@@ -460,45 +533,45 @@
     <div class="slider">
       <input type="radio" name="slide_switch" id="id1" checked />
       <label for="id1">
-        <img src="assets/images/1.png" width="96" />
+        <img src="1.png" width="96" />
       </label>
-      <img src="assets/images/1.png" />
+      <img src="1.png" />
 
       <input type="radio" name="slide_switch" id="id2" />
       <label for="id2">
-        <img src="assets/images/2.png" width="96" />
+        <img src="2.png" width="96" />
       </label>
-      <img src="assets/images/2.png" />
+      <img src="2.png" />
 
       <input type="radio" name="slide_switch" id="id3" />
       <label for="id3">
-        <img src="assets/images/3.png" width="96" />
+        <img src="3.png" width="96" />
       </label>
-      <img src="assets/images/3.png" />
+      <img src="3.png" />
 
       <input type="radio" name="slide_switch" id="id4" />
       <label for="id4">
-        <img src="assets/images/4.png" width="96" />
+        <img src="4.png" width="96" />
       </label>
-      <img src="assets/images/4.png" />
+      <img src="4.png" />
 
       <input type="radio" name="slide_switch" id="id5" />
       <label for="id5">
-        <img src="assets/images/5.png" width="96" />
+        <img src="5.png" width="96" />
       </label>
-      <img src="assets/images/5.png" />
+      <img src="5.png" />
 
       <input type="radio" name="slide_switch" id="id6" />
       <label for="id6">
-        <img src="assets/images/6.png" width="96" />
+        <img src="6.png" width="96" />
       </label>
-      <img src="assets/images/6.png" />
+      <img src="6.png" />
 
       <input type="radio" name="slide_switch" id="id7" />
       <label for="id7">
-        <img src="assets/images/7.png" width="96" />
+        <img src="7.png" width="96" />
       </label>
-      <img src="assets/images/7.png" />
+      <img src="7.png" />
     </div>
 
     <br>
@@ -507,7 +580,6 @@
     <div class="menu">
       <a class="activeButton">Instalacija</a>
       <a>Mogućnosti</a>
-      <a>Dolazi uskoro</a>
       <a>Kontakt</a>
       <a>Autor</a>
     </div>
@@ -517,8 +589,8 @@
       <div class="activeItem">
         <div class="availability">
           <div>Dostupno na:</div>
-          <img src="assets/images/Chrome icon.png" title="Chrome" />
-          <img src="assets/images/Opera icon.png" title="Opera" />
+          <img src="Chrome icon.png" title="Chrome" />
+          <img src="Opera icon.png" title="Opera" />
         </div>
         Klikom na <b>'Preuzmi proširenje'</b> otvara se Chrome Store<br>te se
         proširenje preuzima pritiskom na gumb <b>'Dodaj u Chrome'</b>.<br><br>
@@ -529,8 +601,10 @@
         </ul>
         To su dva najčešća dopuštenja i bez njih 99% drugih proširenja ne bi radilo.<br><br><br>
 
-        <iframe width="860" height="483.75" src="https://www.youtube-nocookie.com/embed/cB61SupdR_8" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video">
+          <iframe width="860" height="483.75" src="https://www.youtube-nocookie.com/embed/cB61SupdR_8" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
 
       <div>
@@ -639,16 +713,6 @@
       </div>
 
       <div>
-        <div class="comingSoon" style="box-shadow: inset -8px 0 5px -8px black; transform: translateY(1px);">Proširenje će biti dostupno još na:<br><br>
-          <img src="assets/images/Firefox icon.png" title="Firefox" /><b>Firefox&nbsp&nbsp&nbsp</b>
-          <img src="assets/images/Edge icon.png" title="Edge" /><b>Edge&nbsp&nbsp&nbsp</b>
-        </div><div class="comingSoon" style="box-shadow: inset 8px 0 5px -8px black;">Aplikacija će biti dostupna na:<br><br>
-          <img src="assets/images/Google play icon.png" title="Google play" /><b>Google play&nbsp&nbsp&nbsp</b>
-          <img src="assets/images/App store icon.png" title="App store" /><b>App store&nbsp&nbsp&nbsp</b>
-        </div>
-      </div>
-
-      <div>
         <div class="messageSent">Hvala na kontaktu</div>
         <form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec"
           method="POST">
@@ -661,9 +725,42 @@
       </div>
 
       <div>
-        Kristijan Rosandić<br><br>
+        Kristijan Rosandić, ETŠ Zagreb<br><br>
+        <div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
+          Izvorni kod (v4.1):
+          <ul>
+            <li>JS, HTML5, CSS3</li>
+            <li>4563 linije</li>
+            <li>23 datoteke</li>
+            <li>7 direktorija</li>
+            <li>366 komentara</li>
+          </ul>
+        </div><div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
+          Paketi/plugini (v3.0+):
+          <ul>
+            <li>JQuery</li>
+            <li>JQuery modal</li>
+            <li>Chartjs</li>
+            <li>Chartjs annotations</li>
+          </ul>
+        </div><div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
+          Literatura & mentor:
+          <ul>
+            <li>Internet</li>
+            <li>Stack Overflow</li>
+            <li>MDN.dev</li>
+            <li>Dokumentacije...</li>
+          </ul>
+        </div>
 
-        Završit ću ostatak kasnije.
+        <div class="comingSoon" style="box-shadow: inset -8px 0 5px -8px black;">Proširenje će biti dostupno i
+          na:<br><br>
+          <img src="Firefox icon.png" title="Firefox" /><b>Firefox&nbsp&nbsp&nbsp</b>
+          <img src="Edge icon.png" title="Edge" /><b>Edge&nbsp&nbsp&nbsp</b>
+        </div><div class="comingSoon" style="box-shadow: inset 8px 0 5px -8px black;">Aplikacija će biti dostupna na:<br><br>
+          <img src="Google play icon.png" title="Google play" /><b>Google play&nbsp&nbsp&nbsp</b>
+          <img src="App store icon.png" title="App store" /><b>App store&nbsp&nbsp&nbsp</b>
+        </div>
       </div>
     </div>
   </div>
