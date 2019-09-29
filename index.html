@@ -11,9 +11,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="UTF-8">
-  <link rel="shortcut icon" href="assets/images/original-logo-90x90.png" type="image/x-icon">
+  <link rel="shortcut icon" href="original-logo-90x90.png" type="image/x-icon">
 
   <style>
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+    }
+
     body {
       font-family: "Trebuchet MS", "Helvetica", sans-serif;
       background-color: #E9EBEE;
@@ -39,7 +45,7 @@
     .message {
       width: 65%;
       height: 150px;
-      margin: 15px 0 5px 0;
+      margin: 15px 0 15px 0;
       padding: 15px;
     }
 
@@ -202,7 +208,6 @@
       animation-duration: 1s;
       animation-timing-function: linear;
       margin-top: 65px;
-      margin-bottom: 35px;
     }
 
     @keyframes line_animation {
@@ -216,28 +221,33 @@
     }
 
     .menu {
-      padding-bottom: 25px;
+      padding-top: 35px;
+      padding-bottom: 35px;
     }
 
-    .menu a,
-    form button {
+    .menu a, .submit.enabled {
       font-size: 13px;
       font-weight: bold;
       padding: 5px 20px 5px 20px;
       border: 2px solid #999;
       color: #555555;
-      display: inline-block;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
       margin: 5px;
     }
 
-    .menu a:hover,
-    form button:hover:not(:disabled) {
+    .menu a:hover, .submit.enabled:hover {
       cursor: pointer;
       border-color: #46A246;
       color: #46A246;
+    }
+
+    .submit:not(.enabled) {
+      pointer-events: none;
+    }
+    .submit.enabled {
+      font-size: 25px;
     }
 
     .menu a.activeButton {
@@ -312,6 +322,7 @@
       body {
         background-color: white;
         position: relative;
+        margin: 0;
       }
 
       html,
@@ -323,31 +334,24 @@
         max-width: 100%;
       }
 
-      button {
-        font-size: 20px !important;
+      .menu a {
+        margin: 0;
       }
 
       iframe {
         position: absolute;
         top: 0;
         left: -60px;
-        width: 751px;
-        height: 422.44px;
+        height: 56.25vw;
+        width: 102vw;
       }
 
       .downloadButton {
         font-size: 30px;
       }
 
-      .slider label, .slider label img {
-        transition: all 0s;
-      }
-      .menu a {
-        font-size: 20px;
-        transition: all 0s;
-      }
-
       .video {
+        object-fit: fill;
         width: 751px;
         height: 422.44px;
         box-sizing: border-box;
@@ -357,10 +361,17 @@
       .slider {
         width: unset;
         padding-top: 56.25%;
+        transition: 250ms;
       }
 
       .slider label {
-        margin: 18px 0 0 2px;
+        margin: 18px 0 0 6px;
+        width: 0;
+        opacity: 0;
+      }
+
+      .sexyLine {
+        animation-duration: .5s;
       }
 
       .wrap {
@@ -373,9 +384,35 @@
         border-bottom: 2px solid gray;
       }
 
+      .availability {
+        float: none;
+        padding-bottom: 20px;
+      }
+
+      .availability img {
+        width: 60px;
+        height: 60px;
+        padding-top: 20px;
+      }
+
+      .email {
+        height: 35px;
+      }
       .email, .message {
-        width: 100%;
-        font-size: 20px;
+        width: 90%;
+        font-size: 25px;
+      }
+
+      .email::placeholder, .message::placeholder {
+        font-size: 15px;
+      }
+
+      .comingSoon {
+        width: unset !important;
+        height: unset !important;
+        box-shadow: unset !important;
+        display: block;
+        padding-top: 25px;
       }
 
       #footer {
@@ -385,9 +422,9 @@
     }
   </style>
 
-  <script type="text/javascript">
+  <script type="text/javascript">console.log("HI")
     window.onload = () => {
-
+      let thumbnails = document.querySelectorAll(".slider label img");
       let menu = document.getElementsByClassName("menu")[0].children;
       let menuContainer = document.getElementsByClassName("menuContent")[0];
       let menuContent = menuContainer.children;
@@ -399,14 +436,25 @@
       }
       let contactForm = document.getElementsByTagName("form")[0];
       let message = document.getElementsByClassName("message")[0];
-      let submitButton = document.getElementsByTagName("button")[0];
+      let submitButton = document.getElementsByClassName("submit")[0];
       let formSubmited = document.getElementsByClassName("messageSent")[0];
 
-
-      contactForm.addEventListener("submit", handleFormSubmit, false);
+      submitButton.addEventListener("click", handleFormSubmit, false);
       message.addEventListener("input", () => {
-        submitButton.disabled = !message.value;
+        if (message.value) {submitButton.classList.add("enabled");}
+        else {submitButton.classList.remove("enabled");}
       });
+
+      if ((screen.width > 0 ? screen.width : window.innerWidth) < 1000) {
+        let imgWidth = document.getElementsByClassName("slider")[0].offsetWidth / 8;
+        (function makeAllVisible(i) {
+          if (!thumbnails[i]) {return false;}
+          thumbnails[i].width = imgWidth;
+          thumbnails[i].parentElement.style.width = imgWidth + "px";
+          thumbnails[i].parentElement.style.opacity = 1;
+          setTimeout(() => {makeAllVisible(++i);}, 70);
+        })(0);
+      }
 
       function openMenuOption() {
         let clickedIndex = indexedOptions.indexOf(this);
@@ -484,16 +532,14 @@
         }, 300);
 
         event.preventDefault();
-        var form = event.target;
-        var formData = getFormData(form);
+        var formData = getFormData(contactForm);
         var data = formData.data;
 
         if (formData.honeypot) {
           return false;
         }
 
-        disableAllButtons(form);
-        var url = form.action;
+        var url = contactForm.action;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -501,13 +547,6 @@
           return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
         }).join('&');
         xhr.send(encoded);
-      }
-
-      function disableAllButtons(form) {
-        var buttons = form.querySelectorAll("button");
-        for (var i = 0; i < buttons.length; i++) {
-          buttons[i].disabled = true;
-        }
       }
 
       window.addEventListener('keydown', function (e) {
@@ -723,7 +762,7 @@
             placeholder="E-mail adresa (ako očekujete odgovor)"></textarea><br>
           <textarea class="message" type="text" spellcheck="false" name="Message: "
             placeholder="Upiti, dojmovi, prijedlozi..."></textarea><br>
-          <button type="submit" disabled>Pošalji</button>
+          <a class="submit" type="submit">Pošalji</a>
         </form>
       </div>
 
