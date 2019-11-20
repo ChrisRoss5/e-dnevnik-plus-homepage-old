@@ -3,7 +3,7 @@
 <html lang="hr">
 
 <head>
-  <title>Ažuriran</title>
+  <title>e-Dnevnik Plus za učenike i roditelje</title>
   <meta name="keywords" content="e dnevnik, učitelji, prijava, nastavnici, skole">
   <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
   <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
@@ -11,21 +11,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="UTF-8">
-  <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-136686462-2');
-  </script>
-
-
+  <link rel="shortcut icon" href="assets/images/original-logo-90x90.png" type="image/x-icon">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-136686462-2');
+</script>
   <style>
     html {
       -webkit-tap-highlight-color: transparent;
@@ -44,25 +37,42 @@
       transition: 250ms;
     }
 
-    .sexyLine {
-      height: 2px;
-      width: 600px;
-      border: none;
-      background: linear-gradient(to right, transparent, rgba(79, 183, 72, 0.3), rgba(83, 179, 72, 0.5), #58A846, #5F9A45, #976872, #B05187, #AD519E, #AD519E, #AD519E, #865AA6, #6663AC, #4A69B2, #356FB6, rgba(38, 114, 185, 0.5), rgba(30, 116, 186, 0.3), transparent);
-      animation-name: line_animation;
-      animation-duration: 1s;
-      animation-timing-function: linear;
-      margin-bottom: 20px;
+    form {
+      text-align: center;
+      transition: 250ms;
     }
 
-    @keyframes line_animation {
-      from {
-        width: 0;
-      }
+    .email {
+      text-align: center;
+      width: 35%;
+      padding: 5px;
+    }
 
-      to {
-        width: 600px;
-      }
+    .message {
+      width: 65%;
+      height: 150px;
+      margin: 15px 0 15px 0;
+      padding: 15px;
+    }
+
+    form textarea {
+      font-family: "Trebuchet MS", "Helvetica", sans-serif;
+      resize: none;
+      border-radius: 5px;
+    }
+
+    form textarea:hover {
+      cursor: text;
+    }
+
+    form *:focus {
+      outline: none;
+      border-color: #235694;
+    }
+
+    form button {
+      background-color: white;
+      transition: 250ms;
     }
 
     .wrap {
@@ -84,17 +94,12 @@
       font-weight: 900;
     }
 
-    .plus {
-      color: rgb(34, 150, 218);
-    }
-
     .link {
       color: #235694;
     }
 
-    .textLink {
-      color: #235694;
-      font-weight: bold;
+    .plus {
+      color: rgb(34, 150, 218);
     }
 
     .link:hover {
@@ -104,35 +109,214 @@
     .subTitle {
       font-size: 20px;
       letter-spacing: 1px;
-      padding-bottom: 15px;
+      padding-bottom: 35px;
     }
 
-    .content {
-      width: 85%;
-      margin: 0 auto;
-      text-align: left;
-      font-size: 16px;
-      line-height: 30px;
-    }
-
-    .open {
-      display: block;
-      width: 275px;
-      font-size: 20px;
-      font-weight: 600;
-      color: #555555;
-      border: 1px solid #999;
+    .downloadButton {
+      color: black;
+      font-size: 18px;
+      display: inline-block;
+      border: 2px solid #999;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
-      padding: 8px;
-      margin: 8px auto;
+      padding: 5px 10px 5px 10px;
     }
 
-    .open:hover {
+    .downloadButton:hover {
+      animation: blink 3s infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        border-color: #50B748;
+      }
+
+      25% {
+        border-color: #AD519E;
+      }
+
+      50% {
+        border-color: #1B75BB;
+      }
+
+      75% {
+        border-color: #AD519E;
+      }
+
+      100% {
+        border-color: #50B748;
+      }
+    }
+
+    .slider {
+      width: 864px;
+      position: relative;
+      padding-top: 486px;
+      margin: 35px auto;
+      box-shadow: 0 4px 8px #C8C8C8;
+      border-radius: 8px;
+    }
+
+    .slider>img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 0.5s;
+      border-radius: 5px;
+    }
+
+    .slider input[name='slide_switch'] {
+      display: none;
+    }
+
+    .slider label {
+      margin: 18px 0 0 18px;
+      border: 3px solid #999;
+      border-radius: 8px;
+      float: left;
+      cursor: pointer;
+      transition: all 0.5s;
+      opacity: 0.5;
+    }
+
+    .slider label:hover {
+      opacity: 1;
+      border-color: #46A246;
+    }
+
+    .slider label img {
+      border-radius: 5px;
+      display: block;
+    }
+
+    .slider input[name='slide_switch']:checked+label {
+      border-color: #235694;
+      opacity: 1;
+    }
+
+    .slider input[name='slide_switch']~img {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+
+    .slider input[name='slide_switch']:checked+label+img {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .sexyLine {
+      height: 2px;
+      width: 600px;
+      border: none;
+      background: linear-gradient(to right, transparent, rgba(79, 183, 72, 0.3), rgba(83, 179, 72, 0.5), #58A846, #5F9A45, #976872, #B05187, #AD519E, #AD519E, #AD519E, #865AA6, #6663AC, #4A69B2, #356FB6, rgba(38, 114, 185, 0.5), rgba(30, 116, 186, 0.3), transparent);
+      animation-name: line_animation;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      margin-top: 65px;
+    }
+
+    @keyframes line_animation {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 600px;
+      }
+    }
+
+    .menu {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+
+    .menu a,
+    .submit.enabled {
+      font-size: 13px;
+      font-weight: bold;
+      padding: 5px 20px 5px 20px;
+      border: 2px solid #999;
+      color: #555555;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    .menu a:hover,
+    .submit.enabled:hover {
       cursor: pointer;
       border-color: #46A246;
       color: #46A246;
+    }
+
+    .submit:not(.enabled) {
+      pointer-events: none;
+    }
+
+    .submit.enabled {
+      font-size: 24px;
+      font-weight: normal;
+    }
+
+    .menu a.activeButton {
+      border-color: #235694;
+      color: #235694;
+      box-shadow: inset 0 0 1px 1px #235694;
+    }
+
+    .activeButton:hover {
+      cursor: default;
+    }
+
+    .menuContent {
+      position: relative;
+      padding: 10px 50px 50px 50px;
+      line-height: 1.4;
+      text-align: left;
+      transition: 150ms;
+    }
+
+    .menuContent>div:not(.activeItem) {
+      display: none;
+    }
+
+    .availability {
+      float: right;
+      text-align: center;
+    }
+
+    .availability:first-child {
+      font-weight: bold;
+      color: gray;
+    }
+
+    .availability img {
+      padding: 5px 7px 0 7px;
+    }
+
+    .comingSoon {
+      display: inline-block;
+      vertical-align: bottom;
+      height: 82px;
+      width: 50%;
+      text-align: center;
+    }
+
+    .comingSoon img {
+      vertical-align: middle;
+      padding-right: 10px;
+    }
+
+    .messageSent {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      transition: 250ms;
     }
 
     #footer {
@@ -141,19 +325,6 @@
       text-align: center;
       padding-top: 25px;
       padding-bottom: 25px;
-    }
-
-    video {
-      pointer-events: none;
-      width: 100%;
-    }
-
-    .separator {
-      text-align: center;
-      color: #e3e3e3;
-      font-size: 33px;
-      padding-top: 20px;
-      padding-bottom: 20px;
     }
 
     @media (max-width: 1000px) {
@@ -169,6 +340,18 @@
         overflow-x: hidden;
       }
 
+      img {
+        max-width: 100%;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: -60px;
+        height: 56.25vw;
+        width: 102vw;
+      }
+
       .wrap {
         width: unset;
         margin: unset;
@@ -179,8 +362,71 @@
         border-bottom: 2px solid gray;
       }
 
-      .open {
-        width: 100%;
+      .menu a {
+        margin: 0;
+      }
+
+      .downloadButton {
+        font-size: 30px;
+      }
+
+      .video {
+        object-fit: fill;
+        width: 751px;
+        height: 422.44px;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .slider {
+        width: unset;
+        padding-top: 56.25%;
+        transition: 250ms;
+      }
+
+      .slider label {
+        margin: 18px 0 0 6px;
+        width: 0;
+        opacity: 0;
+      }
+
+      .sexyLine {
+        animation-duration: .5s;
+      }
+
+
+      .availability {
+        float: none;
+        padding-bottom: 20px;
+      }
+
+      .availability img {
+        width: 60px;
+        height: 60px;
+        padding-top: 20px;
+      }
+
+      .email {
+        height: 35px;
+      }
+
+      .email,
+      .message {
+        width: 90%;
+        font-size: 25px;
+      }
+
+      .email::placeholder,
+      .message::placeholder {
+        font-size: 15px;
+      }
+
+      .comingSoon {
+        width: unset !important;
+        height: unset !important;
+        box-shadow: unset !important;
+        display: block;
+        padding-top: 25px;
       }
 
       #footer {
@@ -189,72 +435,301 @@
 
     }
   </style>
+
+  <script type="text/javascript">
+    window.onload = () => {
+      let thumbnails = document.querySelectorAll(".slider label img");
+      let menu = document.getElementsByClassName("menu")[0].children;
+      let menuContainer = document.getElementsByClassName("menuContent")[0];
+      let menuContent = menuContainer.children;
+      let activeButton = menu[0],
+        activeContent = menuContent[0];
+      let indexedOptions = Array.from(menu);
+      let contactForm = document.getElementsByTagName("form")[0];
+      let message = document.getElementsByClassName("message")[0];
+      let submitButton = document.getElementsByClassName("submit")[0];
+      let formSubmited = document.getElementsByClassName("messageSent")[0];
+
+      for (let i = 0; i < menu.length; i++) {
+        menu[i].addEventListener("click", openMenuOption);
+      }
+
+      submitButton.addEventListener("click", handleFormSubmit, false);
+      message.addEventListener("input", () => {
+        if (message.value) {
+          submitButton.classList.add("enabled");
+        } else {
+          submitButton.classList.remove("enabled");
+        }
+      });
+
+      if ((screen.width > 0 ? screen.width : window.innerWidth) < 1000) {
+        let imgWidth = document.getElementsByClassName("slider")[0].offsetWidth / 8;
+        (function makeAllVisible(i) {
+          if (!thumbnails[i]) {
+            return false;
+          }
+          thumbnails[i].width = imgWidth;
+          thumbnails[i].parentElement.style.width = imgWidth + "px";
+          thumbnails[i].parentElement.style.opacity = 1;
+          setTimeout(() => {
+            makeAllVisible(++i);
+          }, 70);
+        })(0);
+      }
+
+      function openMenuOption() {
+        let clickedIndex = indexedOptions.indexOf(this);
+        let clickedOption = menu[clickedIndex];
+        let clickedContent = menuContent[clickedIndex];
+        if (clickedOption.classList.contains("activeButton")) {
+          return false;
+        }
+        clickedOption.classList.add("activeButton");
+        activeButton.classList.remove("activeButton");
+        activeButton = clickedOption;
+
+        menuContainer.style.opacity = 0;
+        setTimeout(() => {
+          clickedContent.classList.add("activeItem");
+          activeContent.classList.remove("activeItem");
+          menuContainer.style.opacity = 1;
+          activeContent = clickedContent;
+        }, 150);
+      }
+
+      function getFormData(form) {
+        var elements = form.elements;
+        var honeypot;
+
+        var fields = Object.keys(elements).filter(function (k) {
+          if (elements[k].name === "honeypot") {
+            honeypot = elements[k].value;
+            return false;
+          }
+          return true;
+        }).map(function (k) {
+          if (elements[k].name !== undefined) {
+            return elements[k].name;
+
+          } else if (elements[k].length > 0) {
+            return elements[k].item(0).name;
+          }
+        }).filter(function (item, pos, self) {
+          return self.indexOf(item) == pos && item;
+        });
+
+        var formData = {};
+        fields.forEach(function (name) {
+          var element = elements[name];
+          formData[name] = element.value;
+          if (element.length) {
+            var data = [];
+            for (var i = 0; i < element.length; i++) {
+              var item = element.item(i);
+              if (item.checked || item.selected) {
+                data.push(item.value);
+              }
+            }
+            formData[name] = data.join(', ');
+          }
+        });
+
+        formData.formDataNameOrder = JSON.stringify(fields);
+        formData.formGoogleSheetName = form.dataset.sheet || "responses";
+        formData.formGoogleSend = form.dataset.email || "";
+        return {
+          data: formData,
+          honeypot: honeypot
+        };
+      }
+
+      function handleFormSubmit(event) {
+        contactForm.style.opacity = 0;
+        setTimeout(() => {
+          formSubmited.style.height = formSubmited.style.width = "auto";
+          formSubmited.style.padding = "70px 0 70px";
+          formSubmited.style.opacity = 1;
+          contactForm.remove();
+        }, 300);
+
+        event.preventDefault();
+        var formData = getFormData(contactForm);
+        var data = formData.data;
+
+        if (formData.honeypot) {
+          return false;
+        }
+
+        var url = contactForm.action;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        var encoded = Object.keys(data).map(function (k) {
+          return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+        }).join('&');
+        xhr.send(encoded);
+      }
+
+      window.addEventListener('keydown', function (e) {
+        if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+          if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
+            e.preventDefault();
+            return false;
+          }
+        }
+      }, true);
+    }
+  </script>
+
 </head>
 
 <body>
   <div class="wrap">
     <div class="title">
       <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
-      <span class="plus">Plus — Ažuriran</span>
+      <span class="plus">Plus</span>
     </div>
     <div class="subTitle">Proširenje za učenički/roditeljski e-Dnevnik</div>
+    <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe"
+      class="downloadButton" target="_blank">Preuzmi proširenje</a>
 
-    <hr class="sexyLine">
+    <div class="slider">
+      <input type="radio" name="slide_switch" id="id1" checked />
+      <label for="id1">
+        <img src="assets/images/1.png" width="96" />
+      </label>
+      <img src="assets/images/1.png" />
 
-    <div style="font-weight: bold; text-align: center; font-size: 20px; padding-bottom: 20px;">Novo u verziji 4.5:</div>
+      <input type="radio" name="slide_switch" id="id2" />
+      <label for="id2">
+        <img src="assets/images/2.png" width="96" />
+      </label>
+      <img src="assets/images/2.png" />
 
-    <div class="content">
-      <video autoplay loop muted>
-        <source src="../assets/videos/vid1.mp4" type="video/mp4" />
-      </video>
-      <div class="separator">«•»</div>
-      <video autoplay loop muted>
-        <source src="../assets/videos/vid2.mp4" type="video/mp4" />
-      </video>
-      <div class="separator">«•»</div>
-      <video autoplay loop muted>
-        <source src="../assets/videos/vid3.mp4" type="video/mp4" />
-      </video>
-      <div class="separator">«•»</div>
-      <video autoplay loop muted>
-        <source src="../assets/videos/vid4.mp4" type="video/mp4" />
-      </video>
-      <div class="separator">VIŠE:</div>
+      <input type="radio" name="slide_switch" id="id3" />
+      <label for="id3">
+        <img src="assets/images/3.png" width="96" />
+      </label>
+      <img src="assets/images/3.png" />
 
-      <ul>
-        <li>Dodane su nove opcije prozora ikone: <i>'Brzi pregled ocjena'</i> i <i>'Školski kalendar'</i>. </li>
-        <li><i>'Brzi pregled ocjena omogućuje'</i> pregled i upravljanje svim ocjenama na naslovnoj stranici
-          <i>'Ocjene'</i><br>
-          te promjenu poretka predmeta koji se automatski sprema.</li>
-        <li><i>'Opcija školski kalendar'</i> prikazuje kalendar umjesto popisa ispita na stranici <i>'Ispiti'</i>. </li>
-        <li>Prikazuju se posebno broj novih ocjena i broj novih bilješki. Broj novih ocjena i bilješki prikazivat će se
-          i za svaki predmet sve dok se ne otvore u predmetu ili brzim pregledom. </li>
-        <li>Pojednostavljen je unos ocjena:
-          <ul>
-            <li>Moguće je upisivati sve znakove, ali izlaskom iz polja ocjena bit će prihvaćene samo valjane ocjene
-              automatski odvojene zarezom. Broj unesenih ocjena je neograničen.</li>
-            <li>Unesene ocjene su crvene boje, dok originalne u istom polju ostaju crne.</li>
-            <li>Spremljene ocjene na naslovnoj stranici ostaju i u predmetu.</li>
-            <li>U predmetu se prikazuju originalni i izmjenjeni prosjeci ukoliko nisu isti.</li>
-            <li>Uz omogućeno proširenje nove ocjene nastavit će se prikazivati normalno.</li>
-          </ul>
-        </li>
-        <li>
-          U predmetu je moguće promijeniti ili sakriti bilješke i prikazati ili sakriti 'skriveno'. Sve nove bilješke ili
-          zapisi nastavit će se prikazivati normalno. Na kartici 'Plus' sve promjene mogu se obrisati.
-        </li>
-        <li>Na tortnom grafu moguće je sakriti ocjene istog tipa klikom na njih i time promijeniti omjer ocjena.</li>
-        <li>Novi dizajn: skrivanje blokova u predmetu, moderniji gumbi, znatno optimiziraniji kod...</li>
-        <li>A sad kad znate sve, možete napraviti sljedeće (<a class="link"
-            href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe/reviews"
-            target="_blank"><b><u>molim nakon što ocijenite aplikaciju</u></b></a>):</li>
-      </ul>
+      <input type="radio" name="slide_switch" id="id4" />
+      <label for="id4">
+        <img src="assets/images/4.png" width="96" />
+      </label>
+      <img src="assets/images/4.png" />
+
+      <input type="radio" name="slide_switch" id="id5" />
+      <label for="id5">
+        <img src="assets/images/5.png" width="96" />
+      </label>
+      <img src="assets/images/5.png" />
+
+      <input type="radio" name="slide_switch" id="id6" />
+      <label for="id6">
+        <img src="assets/images/6.png" width="96" />
+      </label>
+      <img src="assets/images/6.png" />
+
+      <input type="radio" name="slide_switch" id="id7" />
+      <label for="id7">
+        <img src="assets/images/7.png" width="96" />
+      </label>
+      <img src="assets/images/7.png" />
     </div>
 
-    <br style="display: block; margin-bottom: 65px; content: ' ';">
-    <a class="open" href="https://ocjene.skole.hr/" target="_blank">Otvori e-Dnevnik</a>
-    <a class="open" href="../">Povratak na naslovnu</a>
-    <br style="display: block; margin-bottom: 65px; content: ' ';">
+    <br>
+
+    <hr class="sexyLine">
+    <div class="menu">
+      <a class="activeButton">Instalacija</a>
+      <a>Mogućnosti</a>
+      <a>Kontakt</a>
+      <a>Autor</a>
+    </div>
+
+    <div class="menuContent">
+
+      <div class="activeItem">
+        <div class="availability">
+          <div>Dostupno na:</div>
+          <img src="assets/images/Chrome icon.png" title="Chrome" />
+          <img src="assets/images/Opera icon.png" title="Opera" />
+        </div>
+        Klikom na <b>'Preuzmi proširenje'</b> otvara se Chrome Store<br>te se
+        proširenje preuzima pritiskom na gumb <b>'Dodaj u Chrome'</b>.<br><br>
+        Za instalaciju je potrebno prihvatiti dva dopuštenja:
+        <ul>
+          <li>Mogućnost mijenjanja sadržaja određenih web-stranica (ključni je dio proširenja).</li>
+          <li>Čitanje vaše povijesti pretraživanja, kako bi se proširenje aktiviralo samo na stranici e-Dnevnika.</li>
+        </ul>
+        To su dva najčešća dopuštenja i bez njih 99% drugih proširenja ne bi radilo.<br><br><br>
+
+        <div class="video">
+          <iframe width="860" height="483.75" src="https://www.youtube-nocookie.com/embed/cB61SupdR_8" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div>
+        Ažurira se...
+        <hr style="margin-top: 50px;">
+        <b>Svi detalji o proširenju i njegovoj građi bit će dostupni uskoro na službenoj dokumentaciji.</b>
+      </div>
+
+      <div>
+        <div class="messageSent">Hvala na kontaktu</div>
+        <form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec"
+          method="POST">
+          <textarea class="email" type="text" spellcheck="false" rows="1" name="Mail: "
+            placeholder="E-mail adresa (ako očekujete odgovor)"></textarea><br>
+          <textarea class="message" type="text" spellcheck="false" name="Message: "
+            placeholder="Upiti, dojmovi, prijedlozi..."></textarea><br>
+          <a class="submit" type="submit">Pošalji</a>
+        </form>
+      </div>
+
+      <div>
+        Kristijan Rosandić, ETŠ Zagreb<br><br>
+        <div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
+          Izvorni kod (v4.1):
+          <ul>
+            <li>JS, HTML5, CSS3</li>
+            <li>4563 linije</li>
+            <li>23 datoteke</li>
+            <li>7 direktorija</li>
+            <li>366 komentara</li>
+          </ul>
+        </div>
+        <div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
+          Paketi/plugini (v3.0+):
+          <ul>
+            <li>JQuery</li>
+            <li>JQuery modal</li>
+            <li>Chartjs</li>
+            <li>Chartjs annotations</li>
+          </ul>
+        </div>
+        <div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
+          Literatura & mentor:
+          <ul>
+            <li>Internet</li>
+            <li>Stack Overflow</li>
+            <li>MDN.dev</li>
+            <li>Dokumentacije...</li>
+          </ul>
+        </div>
+
+        <div class="comingSoon" style="box-shadow: inset -8px 0 5px -8px black;">Proširenje će biti dostupno i
+          na:<br><br>
+          <img src="assets/images/Firefox icon.png" title="Firefox" /><b>Firefox&nbsp&nbsp&nbsp</b>
+          <img src="assets/images/Edge icon.png" title="Edge" /><b>Edge&nbsp&nbsp&nbsp</b>
+        </div><div class="comingSoon" style="box-shadow: inset 8px 0 5px -8px black;">Aplikacija će biti dostupna na:<br><br>
+          <img src="assets/images/Google play icon.png" title="Google play" /><b>Google play&nbsp&nbsp&nbsp</b>
+          <img src="assets/images/App store icon.png" title="App store" /><b>App store&nbsp&nbsp&nbsp</b>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="footer">
@@ -262,8 +737,9 @@
     © <span style="font-weight: normal;">2019</span> |
     <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
       kristijan.ros@gmail.com</a> |
-    <a class="link" href="../politika-privatnosti/">
+    <a class="link" href="politika-privatnosti">
       politika privatnosti</a>
+
   </div>
 </body>
 
