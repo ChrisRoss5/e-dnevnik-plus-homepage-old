@@ -12,13 +12,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="assets/images/original-logo-90x90.png" type="image/x-icon">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-136686462-2');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-136686462-2');
+  </script>
   <style>
     html {
       -webkit-tap-highlight-color: transparent;
@@ -593,6 +596,8 @@
     <div class="subTitle">Proširenje za učenički/roditeljski e-Dnevnik</div>
     <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe"
       class="downloadButton" target="_blank">Preuzmi proširenje</a>
+    <a href="azuriran" class="downloadButton" target="_blank">Posljednje ažuriranje</a>
+
 
     <div class="slider">
       <input type="radio" name="slide_switch" id="id1" checked />
@@ -672,7 +677,119 @@
       </div>
 
       <div>
-        Ažurira se...
+        Nakon instalacije, ako nemate uključenu <b>sinkronizaciju</b>, preglednik će vas pitati želite li ju uključiti.
+        Prednost
+        omogućene sinkronizacije je da proširenje pamti va&scaron;e izmjene u e-Dnevniku i postavke proširenja te se one
+        automatski učitavaju na svim računalima gdje se kasnije prijavite s preglednikom.
+        <br><br>
+        Prozor proširenja je mali prozor koji se otvori kad kliknete na <b>ikonu proširenja</b>. Ikonu je moguće sakriti
+        desnim klikom na nju te <i>'Sakrij u izborniku Chromea'</i>
+        ili <i>'Hide in Chrome menu'</i>.<br>Lijevim klikom pojavljuju se sljedeće opcije:
+        <ul>
+          <li><b>Onemogući ili omogući proširenje</b> u svakom trenutku (ne gubi se spremljeno).</li>
+          <li><b>Prikaži nove ocjene</b> - prikazuje nove ocjene za svaki predmet (ukoliko ih ima).</li>
+          <li><b>Brzi pregled ocjena</b> - omogućuje pregled i upravljanje svim ocjenama na naslovnoj stranici
+            <i>'Ocjene'</i>
+            te promjenu poretka predmeta koji se automatski sprema.</li>
+          <li><b>Školski kalendar</b> - prikazuje kalendar umjesto popisa ispita na stranici <i>'Ispiti'</i>.</li>
+        </ul>
+        <br>
+        Na stranicama e-Dnevnika (ocjene.skole.hr):
+        <ul>
+          <li><b>Na stranici prijave</b> u e-Dnevnik nalazi se gumb <i>'Ostani prijavljen'</i>. Ako ga ostavite praznim,
+            ne
+            morate se brinuti o odjavljivanju. Obilježite li ga s kvačicom ostajete prijavljeni zauvijek, čak i nakon
+            promjene lozinke.</li>
+          <li><b>Na stranici odabira razreda</b> nalazi se gumb <i>'Uvijek otvori tekuću školsku godinu'</i>.</li>Ispod
+          navedenih
+          razreda
+          nalazi gumb za prikaz statistike svih razreda.
+          <li><b>Na stranici &scaron;kolske godine</b> nalazi se dodatni gumb <i>'Plus'</i>, desno od <i>'Odabir
+              razreda'</i>.
+            Klikom na njega vidjet ćete:
+            <ul>
+              <li>Trenutačnu verziju proširenja koju koristite.</li>
+              <li>Broj dana do kraja ili početka &scaron;kolske godine.</li>
+              <li>Posljednje promjene pri ažuriranju proširenja.</li>
+              <li>Mogućnost pregleda i uređivanja svih ocjena otvorenog razreda u novoj kartici s opcijama ispisa i
+                spremanja.
+              </li>
+              <li>Kalkulator bodova za upis u srednju školu. Ispunjava se sam, a ukoliko nije potpun potrebno je unijeti
+                ocjene. Nakon odabira škole i smjera prikazat će se bodovni prag zajedno s vašim brojem bodova za upis.
+              </li>
+              <li>Mogućnost promjene lozinke, a klikom na <i>'Promijeni lozinku'</i> otvara se webmail za promjenu
+                lozinke.</li>
+              <li>Mogućnost preuzimanja Office 365 ProPlus, a klikom na <i>'Preuzmi'</i> otvara se CARNet-ova stranica s
+                uputama preuzimanja.</li>
+              <li>Opcije brisanja svih spremljenih promjena, a klikom na njih javlja se potvrdna poruka za ono što će se
+                trajno obrisati.</li>
+            </ul>
+          </li>
+          <li><b>Na popisu predmeta</b> (izbornik <i>'Ocjene'</i>):
+            <ul>
+              <li>Pri vrhu se nalazi <i>'Završni prosjek: ?,??'</i>, a predstavlja va&scaron; prosjek kakav bi bio da se
+                sada zaključe sve ocjene. Desno od njega moguće je osvježiti stranicu ukoliko se ne pojavljuju nove
+                ocjene.</li>
+              <li>Kod svakog predmeta vidi se broj ocjena i prosjek, a klikom na prosjek moguće ga je izmijeniti
+                u bilo koji drugi strogo od 1 do 5. Ako je promijenjen prosjek ispravan, odmah se vidi novi ukupni
+                prosjek. Ukoliko nije ispravan ili polje ostavite prazno, ukupan prosjek se računa bez toga predmeta.
+              </li>
+              <li>Promijenjeni prosjeci crvene su boje, a povratkom na originalne vi&scaron;e nisu. Isto vrijedi i
+                za ukupan prosjek te sve druge ocjene.</li>
+              <li>Zeleni indikatori na predmetu pokazuju da će ocjena vrlo vjerojatno biti zaključena na višu.</li>
+              <li>Promijenjeni prosjeci ne ostaju spremljeni nakon osvježavanja stranice, osim ako se prosjek
+                promijeni mijenjanjem ocjena i spremi u predmetu ili brzim pregledom.</li>
+              <li>Spremljene ocjene na naslovnoj stranici ostaju i u predmetu te obrnuto.</li>
+              <li>Uz omogućeno proširenje nove ocjene nastavit će se prikazivati normalno nakon spremljenih promjena.
+              </li>
+              <li>Spu&scaron;tanjem stranice pojavljuje se statistika, a to je:
+                <ul>
+                  <li>Prosjek svih ocjena (<i>broj ocjena</i>): (<i>?,??</i>)</li>
+                  <li>Tortni graf s omjerom odličnih, vrlo dobrih, dobrih, dovoljnih i nedovoljnih ocjena, gdje se
+                      prelaskom mi&scaron;em preko grafa pojavljuje broj i postotak tih ocjena.</li>
+                  <li>Linijski graf koji predstavlja broj ocjena i prosjek ocjena kroz godinu, gdje se prelaskom s
+                    mi&scaron;em pojavljuju ti podaci.</li>
+                  <li>Na tortnom grafu moguće je sakriti ocjene istog tipa klikom na njih ili legendu i time promijeniti
+                    omjer ocjena.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><b>U predmetu:</b>
+            <ul>
+              <li>Iznad svake tablice (bloka) je svijetlo plava traka, a klikom na nju ona se sakrije ili ponovo
+                prikaže. Promjene odmah ostaju spremljene.</li>
+              <li>Moguće je upisivati i brisati ocjene te je novi prosjek odmah vidljiv. Unesene ocjene moraju biti
+                strogo od 1 do 5 te odvojene ukoliko ih je više. Izlaskom iz polja bit će prihvaćene samo valjane
+                ocjene automatski odvojene zarezom.</li>
+              <li>Prikazuju se originalni i izmjenjeni prosjeci ukoliko nisu isti.</li>
+              <li>Moguće je promijeniti ili sakriti bilješke (prelaskom preko datuma) i prikazati ili sakriti
+                'skriveno'. Opcije za spremanje i brisanje (poništavanje) njih nalaze se pri dnu stranice.</li>
+              <li>Uz omogućeno proširenje nove ocjene, bilješke i zapisi nastavit će se prikazivati normalno nakon
+                spremljenih promjena.
+              </li>
+            </ul>
+          </li>
+          <li><b>Na popisu ispita</b> (izbornik <i>'Ispiti'</i>):
+            <ul>
+              <li>Ispiti se nalaze u školskom kalendaru, označeni crvenom točkicom (važno).</li>
+              <li>Moguće je upisivati bilješke za određene datume, spremiti ih kao obične ili važne, ili ih samo
+                obrisati.</li>
+              <li>Za određene datume moguće je i postaviti podsjetnike klikom na ikonu za postavke, iznad polja za unos
+                bilješki. U novootvorenom prozoru dostupne su opcije za primanje obavijesti, posebno za obične i
+                posebno za važne bilješke. To su broj dana prije dobivanja obavijesti i broj prikazivanja obavijesti. Prema spremljenim postavkama one će se
+                prikazivati svaki put prilikom otvaranja preglednika u donjem desnom kutu prozora, a klikom na njih otvara se e-Dnevnik.</li>
+
+              <li>Na školskom kalendaru su označeni još:</li>
+              <ul>
+                <li>Zimski, proljetni i ljetni praznici.</li>
+                <li>Blagdani i neradni dani.</li>
+                <li>Brojevi dana od/do određenog datuma.</li>
+                <li>...i još jedno iznenađenje!</li>
+              </ul>
+            </ul>
+          </li>
+        </ul>
         <hr style="margin-top: 50px;">
         <b>Svi detalji o proširenju i njegovoj građi bit će dostupni uskoro na službenoj dokumentaciji.</b>
       </div>
@@ -690,15 +807,15 @@
       </div>
 
       <div>
-        Kristijan Rosandić, ETŠ Zagreb<br><br>
+        Kristijan Rosandić, 3. razred ETŠ Zagreb<br><br>
         <div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
-          Izvorni kod (v4.1):
+          Izvorni kod (4.5):
           <ul>
             <li>JS, HTML5, CSS3</li>
-            <li>4563 linije</li>
-            <li>23 datoteke</li>
+            <li>5310 linije</li>
+            <li>247 komentara</li>
+            <li>25 datoteka</li>
             <li>7 direktorija</li>
-            <li>366 komentara</li>
           </ul>
         </div>
         <div class="comingSoon" style="text-align: left; width: 32%; height: 200px;">
@@ -706,6 +823,7 @@
           <ul>
             <li>JQuery</li>
             <li>JQuery modal</li>
+            <li>SortableJS (v4.5)</li>
             <li>Chartjs</li>
             <li>Chartjs annotations</li>
           </ul>
