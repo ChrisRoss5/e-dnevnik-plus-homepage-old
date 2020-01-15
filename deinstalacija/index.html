@@ -1,7 +1,494 @@
-<!DOCTYPE html><html><head> <title>Deinstalacija</title> <meta charset="UTF-8"> <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-136686462-2');
-</script> <style>.radio{margin: 16px 10px 25px; display: block; cursor: pointer;}.radio input{display: none;}.radio input+span{line-height: 35px; height: 35px; padding-left: 60px; display: block; position: relative;}.radio input+span:before, .radio input+span:after{content: ''; width: 35px; height: 35px; display: block; border-radius: 50%; left: 0; top: 0; position: absolute;}.radio input+span:before{background: #d1d7e3; transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);}.radio input+span:after{background: #fff; transform: scale(0.78); transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);}.radio input:checked+span:before{transform: scale(1.04); background: rgb(86, 159, 255);}.radio input:checked+span:after{transform: scale(0.4); transition: transform 0.3s ease;}.radio:hover input+span:before{transform: scale(0.82);}.radio:hover input+span:after{transform: scale(0.74);}.radio:hover input:checked+span:after{transform: scale(0.4);}html{-webkit-tap-highlight-color: transparent; -ms-touch-action: manipulation; touch-action: manipulation;}body{font-family: "Trebuchet MS", "Helvetica", sans-serif; background-color: #E9EBEE;}a{cursor: pointer; text-decoration: none; transition: 250ms;}.wrap{text-align: center; width: 960px; margin: 15px auto auto auto; background-color: #FFFFFF; border: 1px solid #D1D1D2; border-radius: 5px; -moz-box-shadow: #C8C8C8 0 5px 15px 2px; -webkit-box-shadow: #C8C8C8 0 5px 15px 2px; -khtml-box-shadow: #C8C8C8 0 5px 15px 2px; box-shadow: 0 2px 5px #C8C8C8;}.title{padding-top: 35px; font-size: 60px; font-weight: 900;}.plus{color: rgb(34, 150, 218);}.link{color: #235694;}.link:hover{color: #46A246;}.textLink{color: #235694; font-weight: bold;}.subTitle{font-size: 20px; letter-spacing: 1px; padding-bottom: 35px;}.open{display: block; width: 275px; font-size: 20px; font-weight: 600; color: #555555; border: 1px solid #999; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; padding: 8px; margin: 8px auto;}.open:hover{cursor: pointer; border-color: #46A246; color: #46A246;}.bye{width: 62%; margin: 0 auto; text-align: left; font-size: 20px; font-weight: 100; line-height: 30px;}form{max-height: 1000px; transition: 500ms;}.message{width: 95%; height: 150px; margin: 15px 0 15px 0; padding: 15px;}form textarea{font-size: 18px; font-family: "Trebuchet MS", "Helvetica", sans-serif; resize: none; border-radius: 5px;}form textarea:hover{cursor: text;}form *:focus{outline: none; border-color: #235694;}.submit.enabled{font-size: 25px; padding: 5px 20px 5px 20px; border: 2px solid #999; color: #555555; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin: 5px;}.submit.enabled:hover{cursor: pointer; border-color: #46A246; color: #46A246;}.submit:not(.enabled){color: gray; pointer-events: none;}.msgNsubmit{display: none; text-align: center; opacity: 0; height: 0; transition: 250ms;}.messageSent{width: 0; height: 0; opacity: 0; font-size: 24px; font-weight: bold; text-align: center; transition: 500ms;}#footer{line-height: 1.5; font-weight: bold; text-align: center; padding-top: 25px; padding-bottom: 25px;}@media (max-width: 1000px){body{background-color: white; position: relative; margin: 0;}html, body{overflow-x: hidden;}.wrap{width: unset; margin: unset; background-color: unset; border: unset; border-radius: unset; box-shadow: unset; border-bottom: 2px solid gray;}.open{display: block; margin-top: 100px; width: 100%;}.bye{width: 90% !important;}.bye form *{font-size: 40px !important;}.bye form label{padding: 15px 0 15px 0;}.message{margin: 25px 0 40px 0;}#footer{font-size: 10px;}}</style> <script>window.onbeforeunload=function (e){return "Molim vas ispunite upitnik.";}; window.onload=function(){let content=document.getElementsByClassName("bye")[0]; let radios=document.getElementsByName("Option: "); let message=document.getElementsByClassName("message")[0]; let submitButton=document.getElementsByClassName("submit")[0]; let msgNsubmit=document.getElementsByClassName("msgNsubmit")[0]; let needComment=msgNsubmitOpened=false; for (let i=0; i < radios.length; i++){radios[i].addEventListener("click", showCommentAndSubmitButton);}submitButton.addEventListener("click", handleFormSubmit, false); message.addEventListener("input", changeSubmitButton); function changeSubmitButton(){if (message.value || !needComment){submitButton.classList.add("enabled");}else{submitButton.classList.remove("enabled");}}function showCommentAndSubmitButton(){if (!msgNsubmitOpened){msgNsubmit.style.display="block"; setTimeout(()=>{msgNsubmit.style.height="250px"; setTimeout(()=>{msgNsubmit.style.opacity=1;}, 250);}, 10); msgNsubmitOpened=true;}if (this.value=="PERFECT"){message.placeholder="Dodaj komentar..."; needComment=false;}else if (this.value=="NOT GOOD"){message.placeholder="Dodaj prijedlog..."; needComment=true;}else{message.placeholder="Objasni što nije ispravno..."; needComment=true;}changeSubmitButton();}}; function disableBeforeUnload(){window.onbeforeunload=null;}function getFormData(form){var elements=form.elements; var honeypot; var fields=Object.keys(elements).filter(function (k){if (elements[k].name==="honeypot"){honeypot=elements[k].value; return false;}return true;}).map(function (k){if (elements[k].name !==undefined){return elements[k].name;}else if (elements[k].length > 0){return elements[k].item(0).name;}}).filter(function (item, pos, self){return self.indexOf(item)==pos && item;}); var formData={}; fields.forEach(function (name){var element=elements[name]; formData[name]=element.value; if (element.length){var data=[]; for (var i=0; i < element.length; i++){var item=element.item(i); if (item.checked || item.selected){data.push(item.value);}}formData[name]=data.join(', ');}}); formData.formDataNameOrder=JSON.stringify(fields); formData.formGoogleSheetName=form.dataset.sheet || "responses"; formData.formGoogleSend=form.dataset.email || ""; return{data: formData, honeypot: honeypot};}function handleFormSubmit(event){let contactForm=document.getElementsByTagName("form")[0]; let formSubmited=document.getElementsByClassName("messageSent")[0]; contactForm.style.opacity=contactForm.style.maxHeight=0; setTimeout(()=>{formSubmited.style.height=formSubmited.style.width="auto"; formSubmited.style.padding="70px 0 70px"; formSubmited.style.opacity=1; contactForm.remove();}, 500); event.preventDefault(); var formData=getFormData(contactForm); var data=formData.data; if (formData.honeypot){return false;}var url=contactForm.action; var xhr=new XMLHttpRequest(); xhr.open('POST', url); xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); var encoded=Object.keys(data).map(function (k){return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);}).join('&'); xhr.send(encoded);}window.addEventListener('keydown', function (e){if (e.keyIdentifier=='U+000A' || e.keyIdentifier=='Enter' || e.keyCode==13){if (e.target.nodeName=='INPUT' && e.target.type=='text'){e.preventDefault(); return false;}}}, true); </script></head><body> <div class="wrap"> <div class="title"> <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a> <span class="plus">Plus</span> </div><div class="subTitle">Proširenje za učenički/roditeljski e-Dnevnik</div><div class="bye"> <div class="messageSent">Poslano!</div><div style="font-size: 24px; padding-top: 35px; padding-bottom: 20px; text-align: center;"> Hvala vam što ste koristili <a class="textLink" href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe"> e-Dnevnik Plus</a>. </div><form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST" onsubmit="javascript:disableBeforeUnload()"> <div style="padding-top: 30px;"> <label class="radio"> <input type="radio" name="Option: " value="PERFECT"> <span>Školovanje je završeno i više mi ne treba.</span> </label> <label class="radio"> <input type="radio" name="Option: " value="NOT GOOD"> <span>Ne sviđa mi se, očekivao sam više.</span> </label> <label class="radio"> <input type="radio" name="Option: " value="ERROR"> <span>Ne radi ispravno.</span> </label> </div><div class="msgNsubmit"> <textarea class="message" name="Comment: " type="text"></textarea> <a class="submit" type="submit">Pošalji</a> </div></form> </div><br style="display: block; margin-bottom: 65px; content: ' ';"> <a class="open" href="../">Povratak na naslovnu</a> <br style="display: block; margin-bottom: 65px; content: ' ';"> </div><div id="footer"> <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>© <span style="font-weight: normal;">2019</span> | <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt"> kristijan.ros@gmail.com</a> | <a class="link" href="../politika-privatnosti/"> politika privatnosti</a> </div></body></html>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Deinstalacija</title>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-136686462-2');
+  </script>
+  <style>
+    .radio {
+      margin: 16px 10px 25px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .radio input {
+      display: none;
+    }
+
+    .radio input+span {
+      line-height: 35px;
+      height: 35px;
+      padding-left: 60px;
+      display: block;
+      position: relative;
+    }
+
+    .radio input+span:before,
+    .radio input+span:after {
+      content: '';
+      width: 35px;
+      height: 35px;
+      display: block;
+      border-radius: 50%;
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+
+    .radio input+span:before {
+      background: #d1d7e3;
+      transition: background 0.2s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 2);
+    }
+
+    .radio input+span:after {
+      background: #fff;
+      transform: scale(0.78);
+      transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+    }
+
+    .radio input:checked+span:before {
+      transform: scale(1.04);
+      background: rgb(86, 159, 255);
+    }
+
+    .radio input:checked+span:after {
+      transform: scale(0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .radio:hover input+span:before {
+      transform: scale(0.82);
+    }
+
+    .radio:hover input+span:after {
+      transform: scale(0.74);
+    }
+
+    .radio:hover input:checked+span:after {
+      transform: scale(0.4);
+    }
+
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+    }
+
+    body {
+      font-family: "Trebuchet MS", "Helvetica", sans-serif;
+      background-color: #E9EBEE;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      transition: 250ms;
+    }
+
+    .wrap {
+      text-align: center;
+      width: 960px;
+      margin: 15px auto auto auto;
+      background-color: #FFFFFF;
+      border: 1px solid #D1D1D2;
+      border-radius: 5px;
+      -moz-box-shadow: #C8C8C8 0 5px 15px 2px;
+      -webkit-box-shadow: #C8C8C8 0 5px 15px 2px;
+      -khtml-box-shadow: #C8C8C8 0 5px 15px 2px;
+      box-shadow: 0 2px 5px #C8C8C8;
+    }
+
+    .title {
+      padding-top: 35px;
+      font-size: 60px;
+      font-weight: 900;
+    }
+
+    .plus {
+      color: rgb(34, 150, 218);
+    }
+
+
+    .link {
+      color: #235694;
+    }
+
+    .link:hover {
+      color: #46A246;
+    }
+
+    .textLink {
+      color: #235694;
+      font-weight: bold;
+    }
+
+    .subTitle {
+      font-size: 20px;
+      letter-spacing: 1px;
+      padding-bottom: 35px;
+    }
+
+    .open {
+      display: block;
+      width: 275px;
+      font-size: 20px;
+      font-weight: 600;
+      color: #555555;
+      border: 1px solid #999;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      padding: 8px;
+      margin: 8px auto;
+    }
+
+    .open:hover {
+      cursor: pointer;
+      border-color: #46A246;
+      color: #46A246;
+    }
+
+    .bye {
+      width: 62%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 20px;
+      font-weight: 100;
+      line-height: 30px;
+    }
+
+    form {
+      max-height: 1000px;
+      transition: 500ms;
+    }
+
+    .message {
+      width: 95%;
+      height: 150px;
+      margin: 15px 0 15px 0;
+      padding: 15px;
+    }
+
+    form textarea {
+      font-size: 18px;
+      font-family: "Trebuchet MS", "Helvetica", sans-serif;
+      resize: none;
+      border-radius: 5px;
+    }
+
+    form textarea:hover {
+      cursor: text;
+    }
+
+    form *:focus {
+      outline: none;
+      border-color: #235694;
+    }
+
+    .submit.enabled {
+      font-size: 25px;
+      padding: 5px 20px 5px 20px;
+      border: 2px solid #999;
+      color: #555555;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    .submit.enabled:hover {
+      cursor: pointer;
+      border-color: #46A246;
+      color: #46A246;
+    }
+
+    .submit:not(.enabled) {
+      color: gray;
+      pointer-events: none;
+    }
+
+    .msgNsubmit {
+      display: none;
+      text-align: center;
+      opacity: 0;
+      height: 0;
+      transition: 250ms;
+    }
+
+    .messageSent {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      transition: 500ms;
+    }
+
+    #footer {
+      line-height: 1.5;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    @media (max-width: 1000px) {
+
+      body {
+        background-color: white;
+        position: relative;
+        margin: 0;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .wrap {
+        width: unset;
+        margin: unset;
+        background-color: unset;
+        border: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        border-bottom: 2px solid gray;
+      }
+
+      .open {
+        display: block;
+        margin-top: 100px;
+        width: 100%;
+      }
+
+      .bye {
+        width: 90% !important;
+      }
+
+      .bye form * {
+        font-size: 40px !important;
+      }
+
+      .bye form label {
+        padding: 15px 0 15px 0;
+      }
+
+      .message {
+        margin: 25px 0 40px 0;
+      }
+
+      #footer {
+        font-size: 10px;
+      }
+
+    }
+  </style>
+
+  <script>
+    window.onbeforeunload = function (e) {
+      return "Molim ispunite upitnik.";
+    };
+
+    window.onload = function () {
+      let content = document.getElementsByClassName("bye")[0];
+      let radios = document.getElementsByName("Option: ");
+      let message = document.getElementsByClassName("message")[0];
+      let submitButton = document.getElementsByClassName("submit")[0];
+      let msgNsubmit = document.getElementsByClassName("msgNsubmit")[0];
+      let needComment = msgNsubmitOpened = false;
+
+      for (let i = 0; i < radios.length; i++) {
+        radios[i].addEventListener("click", showCommentAndSubmitButton);
+      }
+
+      submitButton.addEventListener("click", handleFormSubmit, false);
+      message.addEventListener("input", changeSubmitButton);
+
+      function changeSubmitButton() {
+        if (message.value || !needComment) {
+          submitButton.classList.add("enabled");
+        } else {
+          submitButton.classList.remove("enabled");
+        }
+      }
+
+      function showCommentAndSubmitButton() {
+        if (!msgNsubmitOpened) {
+          msgNsubmit.style.display = "block";
+          setTimeout(() => {
+            msgNsubmit.style.height = "250px";
+            setTimeout(() => {
+              msgNsubmit.style.opacity = 1;
+            }, 250);
+          }, 10);
+          msgNsubmitOpened = true;
+        }
+        if (this.value == "PERFECT") {
+          message.placeholder = "Dodaj komentar...";
+          needComment = false;
+        } else if (this.value == "NOT GOOD") {
+          message.placeholder = "Dodaj prijedlog...";
+          needComment = true;
+        } else {
+          message.placeholder = "Objasni što nije ispravno...";
+          needComment = true;
+        }
+        changeSubmitButton();
+      }
+    };
+
+    function getFormData(form) {
+      var elements = form.elements;
+      var honeypot;
+
+      var fields = Object.keys(elements).filter(function (k) {
+        if (elements[k].name === "honeypot") {
+          honeypot = elements[k].value;
+          return false;
+        }
+        return true;
+      }).map(function (k) {
+        if (elements[k].name !== undefined) {
+          return elements[k].name;
+
+        } else if (elements[k].length > 0) {
+          return elements[k].item(0).name;
+        }
+      }).filter(function (item, pos, self) {
+        return self.indexOf(item) == pos && item;
+      });
+
+      var formData = {};
+      fields.forEach(function (name) {
+        var element = elements[name];
+        formData[name] = element.value;
+        if (element.length) {
+          var data = [];
+          for (var i = 0; i < element.length; i++) {
+            var item = element.item(i);
+            if (item.checked || item.selected) {
+              data.push(item.value);
+            }
+          }
+          formData[name] = data.join(', ');
+        }
+      });
+
+      formData.formDataNameOrder = JSON.stringify(fields);
+      formData.formGoogleSheetName = form.dataset.sheet || "responses";
+      formData.formGoogleSend = form.dataset.email || "";
+      return {
+        data: formData,
+        honeypot: honeypot
+      };
+    }
+
+    function handleFormSubmit(event) {
+      let contactForm = document.getElementsByTagName("form")[0];
+      let formSubmited = document.getElementsByClassName("messageSent")[0];
+      contactForm.style.opacity = contactForm.style.maxHeight = 0;
+      setTimeout(() => {
+        formSubmited.style.height = formSubmited.style.width = "auto";
+        formSubmited.style.padding = "70px 0 70px";
+        formSubmited.style.opacity = 1;
+        contactForm.remove();
+        window.onbeforeunload = null;
+      }, 500);
+
+      event.preventDefault();
+      var formData = getFormData(contactForm);
+      var data = formData.data;
+
+      if (formData.honeypot) {
+        return false;
+      }
+
+      var url = contactForm.action;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      var encoded = Object.keys(data).map(function (k) {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      }).join('&');
+      xhr.send(encoded);
+    }
+
+    window.addEventListener('keydown', function (e) {
+      if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+        if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
+          e.preventDefault();
+          return false;
+        }
+      }
+    }, true);
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="title">
+      <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
+      <span class="plus">Plus</span>
+    </div>
+    <div class="subTitle">Proširenje za učenički/roditeljski e-Dnevnik</div>
+
+    <div class="bye">
+      <div class="messageSent">Poslano!</div>
+
+      <div style="font-size: 24px; padding-top: 35px; padding-bottom: 20px; text-align: center;">
+        Hvala vam što ste koristili
+        <a class="textLink"
+          href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe">
+          e-Dnevnik Plus</a>.
+      </div>
+
+      <form action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec"
+        method="POST">
+        <div style="padding-top: 30px;">
+          <label class="radio">
+            <input type="radio" name="Option: " value="PERFECT">
+            <span>Školovanje je završeno i više mi ne treba.</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="Option: " value="NOT GOOD">
+            <span>Ne sviđa mi se, očekivao sam više.</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="Option: " value="ERROR">
+            <span>Ne radi ispravno.</span>
+          </label>
+        </div>
+        <div class="msgNsubmit">
+          <textarea class="message" name="Comment: " type="text"></textarea>
+          <a class="submit" type="submit">Pošalji</a>
+        </div>
+      </form>
+    </div>
+
+    <br style="display: block; margin-bottom: 65px; content: ' ';">
+    <a class="open" href="../">Povratak na naslovnu</a>
+    <br style="display: block; margin-bottom: 65px; content: ' ';">
+  </div>
+
+
+  <div id="footer">
+    <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
+    © <span style="font-weight: normal;">2019</span> |
+    <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+      kristijan.ros@gmail.com</a> |
+    <a class="link" href="../politika-privatnosti/">
+      politika privatnosti</a>
+  </div>
+
+</body>
+
+</html>
