@@ -1,2 +1,2 @@
 # e-Dnevnik-Plus
-Web mjesto za aplikaciju e-Dnevnik Plus
+Web-stranica za aplikaciju e-Dnevnik Plus
