@@ -401,7 +401,7 @@
         formSubmited.style.padding = "70px 0 70px";
         formSubmited.style.opacity = 1;
         contactForm.remove();
-        window.onbeforeunload = null;
+        window.onbeforeunload = function() {null};
       }, 500);
 
       event.preventDefault();
