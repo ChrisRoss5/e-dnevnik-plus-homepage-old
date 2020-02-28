@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="hr">
+
+<head>
+  <title>Enkriptor</title>
+  <meta name="keywords" content="e dnevnik, učitelji, prijava, nastavnici, skole">
+  <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
+  <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-136686462-2');
+  </script>
+
+  <!-- Enkripcija podataka za autentikaciju učenika -->
+  <script>
+    window.onload = () => {
+
+      let form = document.getElementsByClassName("form")[0];
+      let loginBox = document.getElementsByClassName("login-form")[0];
+      let usernameBox = document.getElementById("username");
+      let passwordBox = document.getElementById("password");
+      let submit = document.getElementsByTagName("button")[0];
+      let check1 = document.getElementById("check1");
+      let progressMsg1 = check1.firstElementChild;
+      let check2 = document.getElementById("check2");
+      let progressMsg2 = check2.firstElementChild;
+
+      submit.onclick = () => {
+        const username = usernameBox.value;
+        const password = passwordBox.value;
+        const payload = JSON.stringify({
+          "username": username,
+          "password": password
+        });
+        console.log(username, password)
+
+        submit.disabled = true;
+        submit.style.color = "transparent";
+        setTimeout(() => {
+          submit.textContent = "pričekajte...";
+          submit.style.backgroundColor = "#235694";
+          submit.style.color = "#FFFFFF";
+        }, 150);
+
+        progressMessage(check1, progressMsg1, "215px");
+        let loginRequest = new XMLHttpRequest();
+        loginRequest.open("POST", "https://e-dnevnik-plus.firebaseapp.com/prijava", true);
+        loginRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        loginRequest.send(payload);
+        loginRequest.onload = (response) => {
+
+          console.log(response);
+          check1.title = "Status: " + response;
+          if (response) {
+            check1.classList.add("success");
+            progressMessage(check2, progressMsg2, "250px");
+
+            let ecryptionRequest = new XMLHttpRequest();
+            ecryptionRequest.open("POST", "https://e-dnevnik-plus.firebaseapp.com/enkriptor", true);
+            ecryptionRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            ecryptionRequest.send(payload);
+            ecryptionRequest.onload = (error, response) => {
+
+              console.log(error, response);
+              check2.title = "Status: " + response;
+              if (response) {
+                check2.classList.add("success");
+              } else {
+                check2.classList.add("error");
+              }
+            };
+          } else {
+            check1.classList.add("error");
+          }
+        };
+      }
+
+      function progressMessage(el1, el2, h) {
+        form.style.minHeight = h;
+        el1.style.opacity = 1;
+        el2.style.left = 0;
+      }
+
+    };
+  </script>
+
+  <style>
+    @media (max-width: 1000px) {
+
+      body {
+        background-color: white;
+        position: relative;
+        margin: 0;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .wrap {
+        width: unset;
+        margin: unset;
+        background-color: unset;
+        border: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        border-bottom: 2px solid gray;
+      }
+
+      #footer {
+        font-size: 10px;
+      }
+
+    }
+
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+    }
+
+    body {
+      font-family: "Trebuchet MS", "Helvetica", sans-serif;
+      background-color: #E9EBEE;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      transition: 250ms;
+    }
+
+    .wrap {
+      text-align: center;
+      width: 960px;
+      margin: 15px auto auto auto;
+      background-color: #FFFFFF;
+      border: 1px solid #D1D1D2;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px #C8C8C8;
+    }
+
+    .title {
+      padding-top: 35px;
+      font-size: 60px;
+      font-weight: 900;
+    }
+
+    .plus {
+      color: rgb(34, 150, 218);
+    }
+
+    .link {
+      color: #235694;
+    }
+
+    .link:hover {
+      color: #46A246;
+    }
+
+    .subTitle {
+      font-size: 20px;
+      letter-spacing: 1px;
+      padding-bottom: 15px;
+    }
+
+    .content {
+      width: 85%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    .open:hover {
+      cursor: pointer;
+      border-color: #46A246;
+      color: #46A246;
+    }
+
+    #footer {
+      line-height: 1.5;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    .contentTitle {
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: gray;
+      padding: 50px 0 60px;
+    }
+
+    .form {
+      min-height: 168px;
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 2px 5px #C8C8C8;
+      transition: 500ms;
+    }
+
+    .form input {
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #E9EBEE;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .form button {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 14px;
+      transition: 150ms;
+    }
+
+    .login-form {
+      position: relative;
+    }
+
+    .form button:not(:disabled) {
+      cursor: pointer;
+      background-color: rgb(97, 193, 248);
+    }
+
+    .form button:disabled {
+      cursor: normal;
+      background-color: #235694;
+    }
+
+    .form button:hover,
+    .form button:active,
+    .form button:focus {
+      background-color: #235694;
+    }
+
+    .circ {
+      opacity: 0;
+      stroke-dasharray: 130;
+      stroke-dashoffset: 130;
+      transition: all .7s;
+    }
+
+    .tick {
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      transition: stroke-dashoffset .7s 0.2s ease-out;
+    }
+
+    svg {
+      position: absolute;
+      right: 0;
+      width: 40px;
+      height: 40px;
+    }
+
+    .success {
+      color: rgb(33, 170, 33);
+    }
+    .success svg {
+      filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(90%) contrast(119%);
+    }
+
+    .success svg .path {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .error .errorPath {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .errorPath {
+      transform: scale(0);
+      opacity: 0;
+      stroke: red;
+      stroke-linecap: round;
+      stroke-width: 5;
+      transition: 250ms;
+    }
+
+    #check1, #check2, #check3 {
+      width: 100%;
+      position: absolute;
+      opacity: 0;
+      text-align: right;
+      transition: filter 250ms;
+    }
+
+    #check1 {
+      top: 185px;
+    }
+
+    #check2 {
+      top: 235px;
+    }
+
+    #check3 {
+      top: 285px;
+    }
+
+    .progressMsg {
+      font-weight: bold;
+      position: absolute;
+      top: 7px;
+      left: -25px;
+      transition: 250ms;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="title">
+      <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
+      <span class="plus">Plus</span>
+    </div>
+    <div class="subTitle">Proširenje za učenički e-Dnevnik u školama</div>
+
+    <div class="content">
+
+      <div class="contentTitle">
+        Enkripcija korisničkih podataka za prijavu u e-Dnevnik
+      </div>
+
+      <div class="form">
+
+        <form class="login-form">
+          <input type="text" placeholder="Korisničko ime" id="username" />
+          <input type="password" placeholder="Lozinka" id="password" />
+          <button type="button">Generiraj</button>
+
+          <div id="check1">
+            <div class="progressMsg">Provjera ispravnosti računa...</div>
+            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve">
+              <path class="circ path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                d="
+      M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+              <polyline class="tick path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+      11.6,20 15.9,24.2 26.4,13.8 " />
+            </svg>
+            <svg viewbox="0 0 40 40">
+              <path class="errorPath" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </div>
+
+          <div id="check2">
+            <div class="progressMsg">Enkriptiranje podataka...</div>
+            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve">
+              <path class="circ path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                d="
+    M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+              <polyline class="tick path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+    11.6,20 15.9,24.2 26.4,13.8 " />
+            </svg>
+            <svg viewbox="0 0 40 40">
+              <path class="errorPath" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
+    © <span style="font-weight: normal;">2019</span> |
+    <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+      kristijan.ros@gmail.com</a> |
+    <a class="link" href="../politika-privatnosti/">
+      politika privatnosti</a>
+  </div>
+
+</body>
+
+</html>
