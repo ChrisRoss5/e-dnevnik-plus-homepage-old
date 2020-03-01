@@ -94,12 +94,12 @@ window.onload = () => {
   }
 
   function progressMessage(el1, el2, h) {
-    let message = el2.innerHTML;
+    let message = el2.innerHTML.replace(/\./g, '');
     let loading = window.setInterval(() => {
       if (el1.title != "Učitava se...") {
-        el2.innerHTML = message.replace(".", "") + "...";
+        el2.innerHTML = message + "...";
         clearInterval(loading);
-        return;
+        return false;
       }
       if (el2.innerHTML.substr(el2.innerHTML.length - 3) == "...") {
         el2.innerHTML = message;
