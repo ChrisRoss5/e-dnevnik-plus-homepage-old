@@ -149,7 +149,7 @@ window.onload = () => {
     button.disabled = false;
     button.style.color = "transparent";
     setTimeout(() => {
-      button.textContent = "GENERIRAJ";
+      button.textContent = "registriraj me";
       button.style.backgroundColor = "rgb(97, 193, 248)";
       button.style.color = "#FFFFFF";
     }, 150);
@@ -157,12 +157,12 @@ window.onload = () => {
 
   function copyToClipboard(text) {
     var input = document.createElement('input');
+    input.style.opacity = 0;
     input.setAttribute('value', text);
     document.body.appendChild(input);
+    input.setSelectionRange(0, 99);  // Mobiteli
     input.select();
-    var result = document.execCommand('copy');
-    document.body.removeChild(input);
-    return result;
+    document.execCommand('copy');
   }
 
 }
