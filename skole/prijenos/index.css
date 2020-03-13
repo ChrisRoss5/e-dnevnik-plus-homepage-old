@@ -1,0 +1,278 @@
+@media (max-width: 1000px) {
+
+  body {
+    background-color: white;
+    position: relative;
+    margin: 0;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: unset;
+    margin: unset;
+    background-color: unset;
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    border-bottom: 2px solid gray;
+  }
+
+  #footer {
+    font-size: 10px;
+  }
+
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: "Trebuchet MS", "Helvetica", sans-serif;
+  background-color: #E9EBEE;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  transition: 250ms;
+}
+
+.wrap {
+  text-align: center;
+  width: 960px;
+  margin: 15px auto auto auto;
+  background-color: #FFFFFF;
+  border: 1px solid #D1D1D2;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #C8C8C8;
+}
+
+.title {
+  padding-top: 35px;
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.plus {
+  color: rgb(34, 150, 218);
+}
+
+.link {
+  color: #235694;
+}
+
+.link:hover {
+  color: #46A246;
+}
+
+.subTitle {
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding-bottom: 15px;
+}
+
+.content {
+  width: 85%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.open:hover {
+  cursor: pointer;
+  border-color: #46A246;
+  color: #46A246;
+}
+
+#footer {
+  line-height: 1.5;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.contentTitle {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: gray;
+  padding: 50px 0 60px;
+}
+
+.form {
+  min-height: 168px;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 2px 5px #C8C8C8;
+  transition: 500ms;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #E9EBEE;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  transition: 150ms;
+}
+
+.login-form {
+  position: relative;
+}
+
+.form button:not(:disabled) {
+  cursor: pointer;
+  background-color: rgb(97, 193, 248);
+}
+
+.form button:disabled {
+  cursor: normal;
+  background-color: #235694;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background-color: #235694;
+}
+
+.circ {
+  opacity: 0;
+  stroke-dasharray: 130;
+  stroke-dashoffset: 130;
+  transition: all .7s;
+}
+
+.tick {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  transition: stroke-dashoffset .7s 0.2s ease-out;
+}
+
+svg {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.success {
+  color: rgb(33, 170, 33);
+}
+
+.success svg {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(90%) contrast(119%);
+}
+
+.success svg .path {
+  opacity: 1;
+  stroke-dashoffset: 0;
+}
+
+.error {
+  color: red;
+}
+
+.error .errorPath {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.errorPath {
+  transform: scale(0);
+  opacity: 0;
+  stroke: red;
+  stroke-linecap: round;
+  stroke-width: 5;
+  transition: 250ms;
+}
+
+#check1,
+#check2,
+#check3 {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  text-align: right;
+  transition: filter 250ms;
+}
+
+#check1 {
+  top: 185px;
+}
+
+#check2 {
+  top: 235px;
+}
+
+#check3 {
+  top: 285px;
+}
+
+.progressMsg {
+  font-weight: bold;
+  position: absolute;
+  top: 7px;
+  left: -25px;
+  transition: 350ms;
+}
+
+#finished {
+  position: absolute;
+  background-color: #ffdbdb;
+  border: 1px dashed red;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  height: 0;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
+  transition: 250ms;
+}
+
+.badFinish {
+  color: rgb(255, 44, 44) !important;
+  background-color: #ffdbdb !important;
+  border: 1px dashed rgb(255, 44, 44) !important;
+}
+
+.successfulFinish {
+  color: rgb(49, 144, 32) !important;
+  background-color: rgb(208, 255, 214) !important;
+  border: 1px dashed rgb(49, 144, 32) !important;
+  text-transform: uppercase;
+}

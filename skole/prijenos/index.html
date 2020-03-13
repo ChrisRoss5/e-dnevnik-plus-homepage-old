@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="hr">
+
+<head>
+  <title>Prijenos</title>
+  <meta name="keywords" content="e dnevnik, učitelji, prijava, nastavnici, skole">
+  <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
+  <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <script src="index.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-136686462-2');
+  </script>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="title">
+      <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
+      <span class="plus">Plus</span>
+    </div>
+    <div class="subTitle">Proširenje za učenički e-Dnevnik u školama</div>
+
+    <div class="content">
+
+      <div class="contentTitle">
+        prijenos korisničkih podataka za prijavu u e-Dnevnik
+      </div>
+
+      <div class="form">
+
+        <form class="login-form">
+          <input type="text" placeholder="Korisničko ime" id="username" />
+          <input type="password" placeholder="Lozinka" id="password" />
+          <button type="button">Generiraj</button>
+
+          <div id="check1">
+            <div class="progressMsg">Provjera ispravnosti računa</div>
+            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve">
+              <path class="circ path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                d="
+      M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+              <polyline class="tick path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+      11.6,20 15.9,24.2 26.4,13.8 " />
+            </svg>
+            <svg viewbox="0 0 40 40">
+              <path class="errorPath" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </div>
+
+          <div id="check2">
+            <div class="progressMsg">Enkriptiranje podataka</div>
+            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve">
+              <path class="circ path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                d="
+    M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+              <polyline class="tick path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+    11.6,20 15.9,24.2 26.4,13.8 " />
+            </svg>
+            <svg viewbox="0 0 40 40">
+              <path class="errorPath" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </div>
+        </form>
+
+        <div id="finished"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
+    © <span style="font-weight: normal;">2019</span> |
+    <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+      kristijan.ros@gmail.com</a> |
+    <a class="link" href="../../politika-privatnosti/">
+      politika privatnosti</a>
+  </div>
+
+</body>
+
+</html>
