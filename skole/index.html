@@ -122,40 +122,6 @@
             padding-bottom: 25px;
         }
 
-        @media (max-width: 1000px) {
-
-            body {
-                background-color: white;
-                position: relative;
-                margin: 0;
-            }
-
-            html,
-            body {
-                overflow-x: hidden;
-            }
-
-            .wrap {
-                width: unset;
-                margin: unset;
-                background-color: unset;
-                border: unset;
-                border-radius: unset;
-                box-shadow: unset;
-                border-bottom: 2px solid gray;
-            }
-
-            .open {
-                width: 100%;
-            }
-
-
-            #footer {
-                font-size: 10px;
-            }
-
-        }
-
         .contentTitle {
             padding: 45px 0 15px;
             font-size: 28px;
@@ -184,7 +150,7 @@
             from {
                 width: 0;
                 opacity: 0;
-            }   
+            }
 
             to {
                 width: 600px;
@@ -199,6 +165,62 @@
             transition: 2s;
         }
 
+
+        @media (max-width: 1000px) {
+
+            body {
+                background-color: white;
+                position: relative;
+                margin: 0;
+            }
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            .wrap {
+                width: unset;
+                margin: unset;
+                background-color: unset;
+                border: unset;
+                border-radius: unset;
+                box-shadow: unset;
+                border-bottom: 2px solid gray;
+            }
+
+            .open {
+                width: 100%;
+            }
+
+            .subTitle {
+                font-size: 13px;
+            }
+
+            #footer {
+                font-size: 10px;
+            }
+
+            .contentTitle {
+                text-align: left;
+            }
+
+            .contentDescr:last-child {
+                font-size: 12px;
+            }
+
+            .contentDescr {
+                padding: 30px 0 30px
+            }
+
+            img {
+                margin-top: 25px;
+                padding-left: 65px;
+                width: 210px;
+                padding: 0 0 15px 80px;
+            }
+
+        }
     </style>
 
     <script>
@@ -257,41 +279,45 @@
 
         <div class="content">
 
-            <div class="contentTitle">Što je e-Dnevnik Plus za škole?</div>            
-            <img src="info-stup.png" style="padding-left: 65px; width: 240px;" align="right"/>
-            <div class="contentDescr"><i>e-Dnevnik Plus za škole</i> posebna je verzija <i>proširenja e-Dnevnik Plus</i>, namijenjena svim učenicima unutar
-                njihove osnovne ili srednje škole. Cilj je pružiti brz i jednostavan pregled ocjena pomoću info-stupova. Uz sve
-                mogućnosti osnovnog proširenja, e-Dnevnik Plus za škole prilagođen je zaslonima osjetljivim na dodir i pruža
+            <div class="contentTitle">Što je e-Dnevnik Plus za škole?</div>
+            <img src="info-stup.png" style="padding-left: 65px; width: 240px;" align="right" />
+            <div class="contentDescr"><i>e-Dnevnik Plus za škole</i> posebna je verzija <i>proširenja e-Dnevnik
+                    Plus</i>, namijenjena svim učenicima unutar
+                njihove osnovne ili srednje škole. Cilj je pružiti brz i jednostavan pregled ocjena pomoću info-stupova.
+                Uz sve
+                mogućnosti osnovnog proširenja, e-Dnevnik Plus za škole prilagođen je zaslonima osjetljivim na dodir i
+                pruža
                 dodatne razine sigurnosti.</div>
 
             <div class="contentTitle">Škola ste i želite se priključiti?</div>
-            <div class="contentDescr" style="text-align: left;">Onda ste na pravome mjestu! Dokumentacija i upute za instalaciju nalaze se ovdje:
+            <div class="contentDescr" style="text-align: left;">Onda ste na pravome mjestu! Dokumentacija i upute za
+                instalaciju nalaze se ovdje:
                 <a class="link" target="_blank" href="../docs/dokumentacija-skole.pdf">
-                    https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
+                    https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br
+                    style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
                 programi nalaze se ispod.<br>Ne brinite, instalacija je gotova u manje od 10 minuta!</div>
             <hr class="sexyLine">
-            <a class="open" href="javascript:;" style="transform: translateX(100px);">Preuzmi e-Dnevnik Plus za škole</a>
+            <a class="open" href="javascript:;" style="transform: translateX(100px);">Preuzmi e-Dnevnik Plus za
+                škole</a>
             <a class="open" href="javascript:;" style="transform: translateX(-100px);">Preuzmi e-Dnevnik Plus API</a>
-            <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank"  style="transform: translateX(100px);">Preuzmi Arduino program</a>
+            <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank"
+                style="transform: translateX(100px);">Preuzmi Arduino program</a>
 
-            <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a class="link" target="_blank" href="prijenos">
-                https://ednevnik.plus/skole/prijenos</a>
+            <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a
+                    class="link" target="_blank" href="prijenos">
+                    https://ednevnik.plus/skole/prijenos</a>
             </div>
-            <div class="contentDescr" style="margin-bottom: 65px;">Podrška: <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
-                kristijan.ros@gmail.com</a> | 097 703 8899<br><a class="link" href="../">
-                    << Povratak na naslovnu</a></div>
-        </div>
-
-    </div>
-
-    <div id="footer">
-        <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
-        © <span style="font-weight: normal;">2019</span> |
-        <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
-            kristijan.ros@gmail.com</a> |
-        <a class="link" href="../politika-privatnosti/">
-            politika privatnosti</a>
-    </div>
+            <div class="contentDescr" style="margin-bottom: 65px;">Podrška: <a class="link"
+                    href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+                    kristijan.ros@gmail.com</a> | 097 703 8899<br><a class="link" href="../">
+                    << Povratak na naslovnu</a> </div> </div> </div> <div id="footer">
+                        <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
+                        © <span style="font-weight: normal;">2019</span> |
+                        <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+                            kristijan.ros@gmail.com</a> |
+                        <a class="link" href="../politika-privatnosti/">
+                            politika privatnosti</a>
+            </div>
 </body>
 
 </html>
