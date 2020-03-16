@@ -91,6 +91,7 @@
         }
 
         .open {
+            opacity: 0;
             text-align: center;
             display: block;
             width: 400px;
@@ -103,6 +104,7 @@
             border-radius: 5px;
             padding: 8px;
             margin: 8px auto;
+            transition: 1s;
         }
 
 
@@ -167,36 +169,81 @@
         }
 
         .sexyLine {
+            opacity: 0;
             height: 2px;
-            width: 600px;
+            width: 0;
             border: none;
             background: linear-gradient(to right, transparent, rgba(79, 183, 72, 0.3), rgba(83, 179, 72, 0.5), #58A846, #5F9A45, #976872, #B05187, #AD519E, #AD519E, #AD519E, #865AA6, #6663AC, #4A69B2, #356FB6, rgba(38, 114, 185, 0.5), rgba(30, 116, 186, 0.3), transparent);
-            animation-name: line_animation;
             animation-duration: 1s;
             animation-timing-function: linear;
+            animation-fill-mode: forwards;
             margin: 55px auto 55px;
         }
 
         @keyframes line_animation {
             from {
                 width: 0;
-            }
+                opacity: 0;
+            }   
 
             to {
                 width: 600px;
+                opacity: 1;
             }
         }
+
+        #manual {
+            text-align: center;
+            margin: 35px 0 65px;
+            opacity: 0;
+            transition: 2s;
+        }
+
     </style>
 
     <script>
+        let sexyLine, downloads, manual;
+
         window.onload = () => {
-            let downloads = document.getElementsByClassName("open");
-            for (let i = 0; i < 2; i++) {
-                downloads[i].addEventListener("click", () => {
-                    alert("Program će biti objavljen na Chrome web-trgovini uskoro!");
-                });
+            sexyLine = document.getElementsByClassName("sexyLine")[0];
+            downloads = document.getElementsByClassName("open");
+            manual = document.getElementById("manual");
+
+            for (let i = 0; i < 3; i++) {
+                if (i != 2) {
+                    downloads[i].addEventListener("click", () => {
+                        alert("Program će biti objavljen na Chrome web-trgovini uskoro!");
+                    });
+                }
+                elementVisible(downloads[i]);
+            }
+
+            elementVisible(sexyLine);
+            elementVisible(manual);
+        };
+
+        window.onscroll = () => {
+            elementVisible(sexyLine);
+            elementVisible(manual);
+            for (let i = 0; i < 3; i++) {
+                elementVisible(downloads[i]);
             }
         };
+
+        function elementVisible(el) {
+            let top = el.offsetTop;
+            let height = el.offsetHeight;
+            let bottom = top + height;
+
+            let IsOverBottom = top > (window.pageYOffset + window.innerHeight);
+            let IsBeforeTop = bottom < window.pageYOffset;
+
+            if (!IsOverBottom && !IsBeforeTop) {
+                el.style.animationName = "line_animation";
+                el.style.transform = "translateX(0)";
+                el.style.opacity = 1;
+            }
+        }
     </script>
 </head>
 
@@ -212,27 +259,27 @@
 
             <div class="contentTitle">Što je e-Dnevnik Plus za škole?</div>            
             <img src="info-stup.png" style="padding-left: 65px; width: 240px;" align="right"/>
-            <div class="contentDescr">e-Dnevnik Plus za škole posebna je verzija proširenja e-Dnevnik Plus, namijenjena
-                svim učenicima unutar njihove osnovne ili srednje škole. Cilj je
-                pružiti najbrži i najjednostavniji pregled ocjena pomoću info-stupova. Uz sve mogućnosti osnovnog
-                proširenja, e-Dnevnik Plus
-                za škole prilagođen je zaslonima osjetljivim na dodir i pruža dodatne razine sigurnosti.</div>
+            <div class="contentDescr"><i>e-Dnevnik Plus za škole</i> posebna je verzija <i>proširenja e-Dnevnik Plus</i>, namijenjena svim učenicima unutar
+                njihove osnovne ili srednje škole. Cilj je pružiti brz i jednostavan pregled ocjena pomoću info-stupova. Uz sve
+                mogućnosti osnovnog proširenja, e-Dnevnik Plus za škole prilagođen je zaslonima osjetljivim na dodir i pruža
+                dodatne razine sigurnosti.</div>
 
             <div class="contentTitle">Škola ste i želite se priključiti?</div>
             <div class="contentDescr" style="text-align: left;">Onda ste na pravome mjestu! Dokumentacija i upute za instalaciju nalaze se ovdje:
-                <a class="link" target="_blank" href="../politika-privatnosti/">
-                    https://ednevnik.plus/skole/dokumentacija/1.0</a> <br style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
+                <a class="link" target="_blank" href="../docs/dokumentacija-skole.pdf">
+                    https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
                 programi nalaze se ispod.<br>Ne brinite, instalacija je gotova u manje od 10 minuta!</div>
             <hr class="sexyLine">
-            <a class="open" href="javascript:;">Preuzmi e-Dnevnik Plus za škole</a>
-            <a class="open" href="javascript:;">Preuzmi e-Dnevnik Plus API</a>
-            <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank" >Preuzmi Arduino program</a>
+            <a class="open" href="javascript:;" style="transform: translateX(100px);">Preuzmi e-Dnevnik Plus za škole</a>
+            <a class="open" href="javascript:;" style="transform: translateX(-100px);">Preuzmi e-Dnevnik Plus API</a>
+            <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank"  style="transform: translateX(100px);">Preuzmi Arduino program</a>
 
-            <br style="display: block; margin-bottom: 55px; content: ' ';">
-            <div class="contentDescr" style="text-align: center;">Korisničke podatke je moguće prenijeti i manualno s: <br><a class="link" target="_blank" href="prijenos">
-                https://ednevnik.plus/skole/prijenos</a> <br style="display: block; margin-bottom: 65px; content: ' ';">
+            <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a class="link" target="_blank" href="prijenos">
+                https://ednevnik.plus/skole/prijenos</a>
             </div>
-
+            <div class="contentDescr" style="margin-bottom: 65px;">Podrška: <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+                kristijan.ros@gmail.com</a> | 097 703 8899<br><a class="link" href="../">
+                    << Povratak na naslovnu</a></div>
         </div>
 
     </div>
