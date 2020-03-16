@@ -3,321 +3,104 @@
 <html lang="hr">
 
 <head>
-    <title>e-Dnevnik Plus za škole</title>
-    <meta name="keywords" content="e dnevnik, učitelji, prijava, nastavnici, skole">
-    <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
-    <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
-    <meta name="google" content="notranslate">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
-    <link rel="stylesheet" href="index.css" type="text/css">
-    <script src="index.js"></script>
+  <title>Prijenos</title>
+  <meta name="keywords" content="e dnevnik, učitelji, prijava, nastavnici, skole">
+  <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
+  <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <script src="index.js"></script>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-136686462-2');
-    </script>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-136686462-2');
+  </script>
 
-    <style>
-        html {
-            -webkit-tap-highlight-color: transparent;
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-        }
-
-        body {
-            font-family: "Trebuchet MS", "Helvetica", sans-serif;
-            background-color: #E9EBEE;
-        }
-
-        a {
-            cursor: pointer;
-            text-decoration: none;
-            transition: 250ms;
-        }
-
-        .wrap {
-            text-align: center;
-            width: 960px;
-            margin: 15px auto auto auto;
-            background-color: #FFFFFF;
-            border: 1px solid #D1D1D2;
-            border-radius: 5px;
-            -moz-box-shadow: #C8C8C8 0 5px 15px 2px;
-            -webkit-box-shadow: #C8C8C8 0 5px 15px 2px;
-            -khtml-box-shadow: #C8C8C8 0 5px 15px 2px;
-            box-shadow: 0 2px 5px #C8C8C8;
-        }
-
-        .title {
-            padding-top: 35px;
-            font-size: 60px;
-            font-weight: 900;
-        }
-
-        .plus {
-            color: rgb(34, 150, 218);
-        }
-
-        .link {
-            color: #235694;
-        }
-
-        .link:hover {
-            color: #46A246;
-        }
-
-        .subTitle {
-            font-size: 20px;
-            letter-spacing: 1px;
-            padding-bottom: 15px;
-        }
-
-        .content {
-            width: 85%;
-            margin: 0 auto;
-            text-align: justify;
-            font-size: 16px;
-            line-height: 30px;
-        }
-
-        .open {
-            opacity: 0;
-            text-align: center;
-            display: block;
-            width: 400px;
-            font-size: 20px;
-            font-weight: 600;
-            color: #555555;
-            border: 1px solid #999;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-            padding: 8px;
-            margin: 8px auto;
-            transition: 1s;
-        }
-
-
-        .open:hover {
-            cursor: pointer;
-            border-color: #46A246;
-            color: #46A246;
-        }
-
-        #footer {
-            line-height: 1.5;
-            font-weight: bold;
-            text-align: center;
-            padding-top: 25px;
-            padding-bottom: 25px;
-        }
-
-        .contentTitle {
-            padding: 45px 0 15px;
-            font-size: 28px;
-            font-weight: bold;
-            color: #235694;
-        }
-
-        .contentDescr {
-            color: gray;
-            font-size: 18px;
-        }
-
-        .sexyLine {
-            opacity: 0;
-            height: 2px;
-            width: 0;
-            border: none;
-            background: linear-gradient(to right, transparent, rgba(79, 183, 72, 0.3), rgba(83, 179, 72, 0.5), #58A846, #5F9A45, #976872, #B05187, #AD519E, #AD519E, #AD519E, #865AA6, #6663AC, #4A69B2, #356FB6, rgba(38, 114, 185, 0.5), rgba(30, 116, 186, 0.3), transparent);
-            animation-duration: 1s;
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
-            margin: 55px auto 55px;
-        }
-
-        @keyframes line_animation {
-            from {
-                width: 0;
-                opacity: 0;
-            }
-
-            to {
-                width: 600px;
-                opacity: 1;
-            }
-        }
-
-        #manual {
-            text-align: center;
-            margin: 35px 0 65px;
-            opacity: 0;
-            transition: 2s;
-        }
-
-
-        @media (max-width: 1000px) {
-
-            body {
-                background-color: white;
-                position: relative;
-                margin: 0;
-            }
-
-            html,
-            body {
-                overflow-x: hidden;
-            }
-
-            .wrap {
-                width: unset;
-                margin: unset;
-                background-color: unset;
-                border: unset;
-                border-radius: unset;
-                box-shadow: unset;
-                border-bottom: 2px solid gray;
-            }
-
-            .open {
-                width: 100%;
-            }
-
-            .subTitle {
-                font-size: 13px;
-            }
-
-            #footer {
-                font-size: 10px;
-            }
-
-            .contentTitle {
-                text-align: left;
-            }
-
-            .contentDescr:last-child {
-                font-size: 12px;
-            }
-
-            .contentDescr {
-                padding: 30px 0 30px
-            }
-
-            img {
-                margin-top: 25px;
-                padding-left: 65px;
-                width: 210px;
-                padding: 0 0 15px 80px;
-            }
-
-        }
-    </style>
-
-    <script>
-        let sexyLine, downloads, manual;
-
-        window.onload = () => {
-            sexyLine = document.getElementsByClassName("sexyLine")[0];
-            downloads = document.getElementsByClassName("open");
-            manual = document.getElementById("manual");
-
-            for (let i = 0; i < 3; i++) {
-                if (i != 2) {
-                    downloads[i].addEventListener("click", () => {
-                        alert("Program će biti objavljen na Chrome web-trgovini uskoro!");
-                    });
-                }
-                elementVisible(downloads[i]);
-            }
-
-            elementVisible(sexyLine);
-            elementVisible(manual);
-        };
-
-        window.onscroll = () => {
-            elementVisible(sexyLine);
-            elementVisible(manual);
-            for (let i = 0; i < 3; i++) {
-                elementVisible(downloads[i]);
-            }
-        };
-
-        function elementVisible(el) {
-            let top = el.offsetTop;
-            let height = el.offsetHeight;
-            let bottom = top + height;
-
-            let IsOverBottom = top > (window.pageYOffset + window.innerHeight);
-            let IsBeforeTop = bottom < window.pageYOffset;
-
-            if (!IsOverBottom && !IsBeforeTop) {
-                el.style.animationName = "line_animation";
-                el.style.transform = "translateX(0)";
-                el.style.opacity = 1;
-            }
-        }
-    </script>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="title">
-            <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
-            <span class="plus">Plus</span>
-        </div>
-        <div class="subTitle">Proširenje za učenički e-Dnevnik u školama</div>
+  <div class="wrap">
+    <div class="title">
+      <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
+      <span class="plus">Plus</span>
+    </div>
+    <div class="subTitle">Proširenje za učenički e-Dnevnik u školama</div>
 
-        <div class="content">
+    <div class="content">
 
-            <div class="contentTitle">Što je e-Dnevnik Plus za škole?</div>
-            <img src="info-stup.png" style="padding-left: 65px; width: 240px;" align="right" />
-            <div class="contentDescr"><i>e-Dnevnik Plus za škole</i> posebna je verzija <i>proširenja e-Dnevnik
-                    Plus</i>, namijenjena svim učenicima unutar
-                njihove osnovne ili srednje škole. Cilj je pružiti brz i jednostavan pregled ocjena pomoću info-stupova.
-                Uz sve
-                mogućnosti osnovnog proširenja, e-Dnevnik Plus za škole prilagođen je zaslonima osjetljivim na dodir i
-                pruža
-                dodatne razine sigurnosti.</div>
+      <div class="contentTitle">
+        prijenos korisničkih podataka za prijavu u e-Dnevnik
+      </div>
 
-            <div class="contentTitle">Škola ste i želite se priključiti?</div>
-            <div class="contentDescr" style="text-align: left;">Onda ste na pravome mjestu! Dokumentacija i upute za
-                instalaciju nalaze se ovdje:
-                <a class="link" target="_blank" href="../docs/dokumentacija-skole.pdf">
-                    https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br
-                    style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
-                programi nalaze se ispod.<br>Ne brinite, instalacija je gotova u manje od 10 minuta!</div>
-            <hr class="sexyLine">
-            <a class="open" href="javascript:;" style="transform: translateX(100px);">Preuzmi e-Dnevnik Plus za
-                škole</a>
-            <a class="open" href="javascript:;" style="transform: translateX(-100px);">Preuzmi e-Dnevnik Plus API</a>
-            <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank"
-                style="transform: translateX(100px);">Preuzmi Arduino program</a>
+      <div class="form">
 
-            <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a
-                    class="link" target="_blank" href="prijenos">
-                    https://ednevnik.plus/skole/prijenos</a>
-            </div>
-            <div class="contentDescr" style="margin-bottom: 65px;">Podrška: <a class="link"
-                    href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
-                    kristijan.ros@gmail.com</a> | 097 703 8899<br><a class="link" href="../">
-                    << Povratak na naslovnu</a> </div> </div> </div> <div id="footer">
-                        <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
-                        © <span style="font-weight: normal;">2019</span> |
-                        <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
-                            kristijan.ros@gmail.com</a> |
-                        <a class="link" href="../politika-privatnosti/">
-                            politika privatnosti</a>
-            </div>
+        <form class="login-form">
+          <input type="text" placeholder="Korisničko ime" id="username" />
+          <input type="password" placeholder="Lozinka" id="password" />
+          <button type="button">registriraj me</button>
+
+          <div id="check1">
+            <div class="progressMsg">Provjera ispravnosti računa</div>
+            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve">
+              <path class="circ path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                d="
+      M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+              <polyline class="tick path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+      11.6,20 15.9,24.2 26.4,13.8 " />
+            </svg>
+            <svg viewbox="0 0 40 40">
+              <path class="errorPath" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </div>
+
+          <div id="check2">
+            <div class="progressMsg">Enkripcija podataka</div>
+            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px" y="0px" viewBox="0 0 37 37" xml:space="preserve">
+              <path class="circ path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;"
+                d="
+    M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+              <polyline class="tick path"
+                style="fill:none;stroke:#000;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:10;" points="
+    11.6,20 15.9,24.2 26.4,13.8 " />
+            </svg>
+            <svg viewbox="0 0 40 40">
+              <path class="errorPath" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+          </div>
+        </form>
+
+        <div id="finished"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
+    © <span style="font-weight: normal;">2019</span> |
+    <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+      kristijan.ros@gmail.com</a> |
+    <a class="link" href="../politika-privatnosti/">
+      politika privatnosti</a>
+  </div>
+
 </body>
 
 </html>
