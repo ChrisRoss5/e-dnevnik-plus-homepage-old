@@ -94,12 +94,12 @@ window.onload = () => {
   }
 
   function progressMessage(el1, el2, h) {
-    let message = el2.innerHTML.replace(/\./g, '');
+    let message = el2.innerHTML;
     let loading = window.setInterval(() => {
       if (el1.title != "Učitava se...") {
-        el2.innerHTML = message + "...";
+        el2.innerHTML = message.replace(".", "") + "...";
         clearInterval(loading);
-        return false;
+        return;
       }
       if (el2.innerHTML.substr(el2.innerHTML.length - 3) == "...") {
         el2.innerHTML = message;
@@ -149,7 +149,7 @@ window.onload = () => {
     button.disabled = false;
     button.style.color = "transparent";
     setTimeout(() => {
-      button.textContent = "registriraj me";
+      button.textContent = "GENERIRAJ";
       button.style.backgroundColor = "rgb(97, 193, 248)";
       button.style.color = "#FFFFFF";
     }, 150);
@@ -157,12 +157,12 @@ window.onload = () => {
 
   function copyToClipboard(text) {
     var input = document.createElement('input');
-    input.style.opacity = 0;
     input.setAttribute('value', text);
     document.body.appendChild(input);
-    input.setSelectionRange(0, 99);  // Mobiteli
     input.select();
-    document.execCommand('copy');
+    var result = document.execCommand('copy');
+    document.body.removeChild(input);
+    return result;
   }
 
 }
