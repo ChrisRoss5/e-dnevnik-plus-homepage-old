@@ -11,7 +11,7 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
   SPI.begin();         // Init SPI bus
-  mfrc522.PCD_Init();  // Init MFRC522 card (in case you wonder what PCD means: proximity coupling device)
+  mfrc522.PCD_Init();  // Init MFRC522 card (PCD: proximity coupling device)
 
   for (byte i = 0; i < 6; i++) {
     key.keyByte[i] = 0xFF;   // keyByte je definiran u "MIFARE_Key" 'struct' definiciji u .h podatku modula
@@ -20,14 +20,14 @@ void setup() {
 
 void loop() {
   mfrc522.PCD_StopCrypto1();  // Zaustavi enkripciju na PCD
-  
+
   if (!mfrc522.PICC_IsNewCardPresent()) {
     return;
   }
   if (!mfrc522.PICC_ReadCardSerial()) {
     return;
   }
-  
+
   // Primanje poruke (korisničkih podataka) iz eD+ API-a
   if (Serial.available()) {
     String userData = Serial.readString();
@@ -37,7 +37,7 @@ void loop() {
       splitAndWrite("?" + userData + "!");
     }
   }
-  
+
   splitAndRead();
   mfrc522.PICC_HaltA();  // Zaustavi PICC
 }
