@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html lang="hr">
+
+<head>
+  <title></title>
+  <meta name="keywords" content="e dnevnik, učitelji, prijava, nastavnici, skole">
+  <meta name="description" content="Sve o aplikaciji e-Dnevnik Plus možete pronaći ovdje.">
+  <meta name="author" content="Kristijan Rosandić, kristijan.ros@gmail.com">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="../assets/images/original-logo-90x90.png" type="image/x-icon">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136686462-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-136686462-2');
+  </script>
+
+  <script>
+    window.onload = main;
+    console.log("HI")
+
+    function main() {
+      let stepDown = document.getElementsByClassName("stepDown")[0];
+      let stepUp = document.getElementsByClassName("stepUp")[0];
+      let amount = document.getElementById("amount");
+      let total = document.getElementById("total");
+      let totalContainer = document.getElementById("totalContainer");
+      let comment = document.getElementById("comment");
+      let donateBtn = document.getElementsByClassName("donate")[0];
+
+      stepDown.onclick = stepClicked;
+      stepUp.onclick = stepClicked;
+      amount.oninput = amountEdited;
+      donateBtn.onclick = donate;
+
+      function amountEdited() {
+        let newAmount = parseInt(this.textContent.replace(/\D+/g, ""));
+        newAmount = newAmount <= 1000 && newAmount || 1000;
+        this.textContent = newAmount;
+        total.textContent = newAmount * 3;
+      }
+
+      function stepClicked() {
+        let raise = this == stepUp;
+        let currentAmount = parseInt(amount.textContent);
+        if (currentAmount > 999 && raise) {return false;}
+
+        totalContainer.style.opacity = amount.style.opacity = 0;
+        totalContainer.style.transform = "translateY(" + (raise ? "" : "-") + "10px)";
+        amount.style.transform = "translateX(" + (raise ? "-" : "") + "10px)";
+
+        setTimeout(() => {
+          let newAmount = parseInt(amount.textContent) + (raise ? 1 : -1);
+          amount.textContent = newAmount;
+          total.textContent = newAmount * 3;
+          totalContainer.style.transition = amount.style.transition = "0ms";
+          totalContainer.style.transform = "translateY(" + (raise ? "-" : "") + "10px)";
+          amount.style.transform = "translateX(" + (raise ? "" : "-") + "10px)";
+          setTimeout(() => {
+            totalContainer.style.transition = amount.style.transition = "350ms";
+            totalContainer.style.transform = "translateY(0)";
+            amount.style.transform = "translateX(0)";
+            totalContainer.style.opacity = amount.style.opacity = 1;
+          }, 50);
+        }, 350);
+
+
+      }
+
+
+      function donate() {
+        let donateUrl = "https://www.paypal.com/cgi-bin/webscr?";
+        let queryStringParams = {
+          image_url: "https://www.cookhousegallery.co.uk/wp-content/uploads/2017/04/all23-600x200.jpg",
+          cmd: "_donations",
+          business: "kristijan.ros@gmail.com",
+          amount: 3,
+          currency_code: "EUR"
+        }
+        donateUrl += URIencoder(queryStringParams);
+        console.log(donateUrl)
+        window.open(donateUrl);
+
+        return;
+        let mailUrl = "https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec";
+        let mailXhr = new XMLHttpRequest();
+        let data = URIencoder({
+          "Ime: ": "",
+          "Komentar: ": comment.value,
+          formDataNameOrder: '["Komentar: ","Ime: "]',
+          formGoogleSend: "",
+          formGoogleSheetName: "responses"
+        });
+
+        mailXhr.open('POST', mailUrl);
+        mailXhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        mailXhr.send(data);
+      }
+    }
+
+    function URIencoder(data) {
+      return Object.keys(data).map((k) => {
+        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+      }).join('&')
+    }
+
+  </script>
+
+  <style>
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+    }
+
+    body {
+      font-family: "Trebuchet MS", "Helvetica", sans-serif;
+      background-color: #E9EBEE;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      transition: 250ms;
+    }
+
+    .wrap {
+      text-align: center;
+      width: 960px;
+      margin: 15px auto auto auto;
+      background-color: #FFFFFF;
+      border: 1px solid #D1D1D2;
+      border-radius: 5px;
+      -moz-box-shadow: #C8C8C8 0 5px 15px 2px;
+      -webkit-box-shadow: #C8C8C8 0 5px 15px 2px;
+      -khtml-box-shadow: #C8C8C8 0 5px 15px 2px;
+      box-shadow: 0 2px 5px #C8C8C8;
+    }
+
+    .title {
+      padding-top: 35px;
+      font-size: 60px;
+      font-weight: 900;
+    }
+
+    .plus {
+      color: rgb(34, 150, 218);
+    }
+
+    .link {
+      color: #235694;
+    }
+
+    .link:hover {
+      color: #46A246;
+    }
+
+    .subTitle {
+      font-size: 20px;
+      letter-spacing: 1px;
+      padding-bottom: 15px;
+    }
+
+    .content {
+      width: 85%;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+    .open:hover {
+      cursor: pointer;
+      border-color: #46A246;
+      color: #46A246;
+    }
+
+    #footer {
+      line-height: 1.5;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    @media (max-width: 1000px) {
+
+      body {
+        background-color: white;
+        position: relative;
+        margin: 0;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .wrap {
+        width: unset;
+        margin: unset;
+        background-color: unset;
+        border: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        border-bottom: 2px solid gray;
+      }
+
+      #footer {
+        font-size: 10px;
+      }
+    }
+
+    .box {
+      border-radius: 10px;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+      padding: 35px 15px;
+      color: #555;
+      line-height: 25px;
+    }
+
+    .boxTitle {
+      font-size: 18px;
+      color: #463e3e;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .box div:not(:first-of-type) {
+      margin-bottom: 10px;
+    }
+
+    sup {
+      position: relative;
+      padding: 6px 7px 12px 3px;
+      font-size: 12px;
+      line-height: 0;
+    }
+
+    sup:hover {
+      cursor: default;
+      text-decoration: underline;
+    }
+
+    sup:hover .moreSup {
+      visibility: visible;
+      opacity: 1;
+      top: -25px;
+      transition: opacity 250ms, 250ms top;
+    }
+
+    .moreSup {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+      min-width: 150px;
+      background: #fff;
+      transform: translateX(-50%);
+      top: -10px;
+      left: 0;
+      padding: 12px;
+      transition: opacity 250ms, 250ms top, visibility 1ms 250ms;
+    }
+
+    #amount {
+      outline: none;
+      width: 45%;
+      margin: 0 auto;
+      transition: 350ms;
+    }
+
+    .amount {
+      border-radius: 50px;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+      user-select: none;
+    }
+
+    .amount:first-of-type {
+      padding: 0 15px;
+    }
+
+    .stepDown,
+    .stepUp {
+      font-size: 10px;
+      padding: 0 10%;
+    }
+
+    .stepDown:hover,
+    .stepUp:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.062);
+      transition: background-color 250ms;
+    }
+
+    .stepUp {
+      float: right;
+      border-left: 1px solid #ccc;
+      border-radius: 0 50px 50px 0;
+    }
+
+    .stepDown {
+      float: left;
+      border-right: 1px solid #ccc;
+      border-radius: 50px 0 0 50px;
+    }
+
+    #totalContainer {
+      display: inline-block;
+      font-weight: bold;
+      transition: 350ms;
+    }
+
+    #total {
+      padding-right: 3px;
+    }
+
+    textarea {
+      border-radius: 10px;
+      box-sizing: border-box;
+      border: none;
+      resize: vertical;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+      outline: none;
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      font-style: italic;
+      font-family: "Trebuchet MS", "Helvetica", sans-serif;
+    }
+
+
+    .donate {
+      position: relative;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%), linear-gradient(to right, #2296DA 0%, #235694 50%, #2296DA 100%);
+      background-position: 0 0;
+      background-size: 200% 100%;
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px 65px 5px 15px;
+      text-shadow: 1px 1px 5px #666;
+      margin-top: 10px;
+      transition: 800ms;
+      letter-spacing: 1px;
+    }
+
+    .donate:after {
+      color: #003527;
+      content: "❤";
+      font-size: 18px;
+      padding: 10px 0;
+      padding-left: 15px;
+      position: absolute;
+      right: 15px;
+      top: -5px;
+      transition: 600ms 200ms;
+    }
+
+    .donate:hover {
+      background-position: -100% 0;
+      cursor: pointer;
+    }
+
+    .donate:hover:after {
+      color: #ff2626;
+      text-shadow: 0 0 10px #000;
+    }
+  </style>
+
+  <script>
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="title">
+      <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
+      <span class="plus">Plus</span>
+    </div>
+    <div class="subTitle">Proširenje za učenički/roditeljski e-Dnevnik</div>
+
+    <div class="content">
+
+      <div style="margin: 35px 0 50px;">
+        <div class="box" style="float: right; width: 45%;">
+          <div class="boxTitle">Kava za programera ☕</div>
+          <div style="margin-top: 15px;">
+            <div style="float: right;" class="amount">
+              Ukupno:
+              <div id="totalContainer">
+                <span id="total">3</span><span>€</span>
+              </div>
+            </div>
+            <div class="amount" style="width: 60%; text-align: center;">
+              <span class="stepUp">➕</span>
+              <span class="stepDown">➖</span>
+              <div id="amount" contenteditable="true">1</div>
+            </div>
+          </div>
+          <textarea id="comment" rows="3" placeholder="Vaša poruka..."></textarea>
+          <div class="donate">DONIRAJ</div>
+        </div>
+        <div class="box" style="width: 45%;">
+          <div class="boxTitle">Zašto donirati?</div>
+          <div>Donacijom omogućujete održavanje<sup>?<div class="moreSup">dev-fee + hosting + domena</div></sup>i nastavak
+          razvoja proširenja.</div>
+          <div>Ako sam vam uštedio vrijeme, olakšao školovanje ili pomogao u nevolji, platite mi kavu :)</div>
+          <div>Donacije su jedini izvor prihoda za nastavak rada. Hvala vam na korištenju proširenja i donaciji!</div>
+        </div>
+      </div>
+      <div class="box comments">
+        <div class="boxTitle">Donacije</div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footer">
+    <div style="color: gray;">Ovo proširenje nije službena CARNET-ova aplikacija.</div>
+    © <span style="font-weight: normal;">2019</span> |
+    <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+      kristijan.ros@gmail.com</a> |
+    <a class="link" href="<!-- ../politika-privatnosti/ -->">
+      politika privatnosti</a>
+  </div>
+</body>
+
+</html>
