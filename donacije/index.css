@@ -267,11 +267,22 @@ textarea {
 }
 
 .emptyDonations {
+  border-radius: 10px;
   text-align: center;
   font-size: 25px;
   color: #ccc;
   border: 2px dashed #ccc;
   padding: 50px;
+  transform: scale(.3);
+  opacity: 0;
+  animation: emptyDonors 500ms forwards;
+}
+
+@keyframes emptyDonors {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .donations {

@@ -57,7 +57,7 @@ function main() {
       dateContainer.className = "donationDate";
 
       titleUser.innerHTML = username + " &nbsp" + "☕".repeat(parseInt(data.coffees));
-      dateContainer.textContent = [date.getDate(), date.getMonth(), date.getFullYear()].join(". ");
+      dateContainer.textContent = [date.getDate(), date.getMonth() + 1, date.getFullYear()].join(". ") + ".";
       comment.textContent = data.comment;
 
       title.appendChild(dateContainer);
