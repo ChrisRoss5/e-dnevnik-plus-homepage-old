@@ -154,7 +154,7 @@ function main() {
       "Ime: ": username.value,
       "Komentar: ": comment.value,
       "Kava: ": amount.textContent,
-      formDataNameOrder: '["Komentar: ","Ime: "]',
+      formDataNameOrder: '["Kava: ","Komentar: ","Ime: "]',
       formGoogleSend: "",
       formGoogleSheetName: "responses"
     });
