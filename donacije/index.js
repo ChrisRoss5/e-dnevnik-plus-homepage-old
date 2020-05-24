@@ -24,7 +24,7 @@ function main() {
 
   let donationsXhr = new XMLHttpRequest();
   donationsXhr.responseType = 'json';
-  donationsXhr.open("GET", "https://storage.cloud.google.com/e-dnevnik-plus.appspot.com/donacije.json");
+  donationsXhr.open("GET", "https://storage.googleapis.com/e-dnevnik-plus.appspot.com/donacije.json");
   donationsXhr.send();
   donationsXhr.onload = donationsLoaded;
 
