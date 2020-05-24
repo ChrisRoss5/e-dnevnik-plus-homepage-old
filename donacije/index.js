@@ -29,28 +29,15 @@ function main() {
   donationsXhr.onload = donationsLoaded;
 
   function donationsLoaded() {
-    console.log(donationsXhr.response);
-    let donations = donationsXhr.response && JSON.parse(donationsXhr.response);
-    if (!donations) {
+    let donations = donationsXhr.response;
+    let keys = donations && Object.keys(donations).sort().reverse(), i = 0;
+    if (!keys) {
       let empty = document.createElement("div");
       empty.classList.add("emptyDonations");
       empty.textContent = "Nema donacija, budite prvi!";
       donationsContainer.appendChild(empty);
       return false;
     }
-
-    /* donations = {
-      "1590276116437": {username: "Kristijan", comment: "Najs.", coffees: 1},
-      "1590276116484": {username: "Lukas", comment: "Veri najs.", coffees: 2},
-      "1590276116587": {username: "Kristijan", comment: "Najs.", coffees: 22},
-      "1590276116487": {username: "Lukas", comment: "Veri najs.", coffees: 2},
-      "1590276112487": {username: "", comment: "", coffees: 1},
-      "1590276115487": {username: "Lukas", comment: "", coffees: 2},
-      "1590276116284": {username: "", comment: "Najs.", coffees: 1},
-      "1590276116182": {username: "Lukas", comment: "Veri najs.", coffees: 2}
-    }; */
-
-    let keys = Object.keys(donations).sort().reverse(), i = 0;
 
     (function addDonation() {
       let key = keys[i];
@@ -72,7 +59,6 @@ function main() {
       titleUser.innerHTML = username + " &nbsp" + "☕".repeat(parseInt(data.coffees));
       dateContainer.textContent = [date.getDate(), date.getMonth(), date.getFullYear()].join(". ");
       comment.textContent = data.comment;
-
 
       title.appendChild(dateContainer);
       title.appendChild(titleUser);
@@ -162,11 +148,12 @@ function main() {
     userInfoXhr.send(userInfo);
 
     /* Spreadsheet */
-    /* let mailUrl = "https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec";
+    let mailUrl = "https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec";
     let mailXhr = new XMLHttpRequest();
     let data = URIencoder({
       "Ime: ": username.value,
       "Komentar: ": comment.value,
+      "Kava: ": amount.textContent,
       formDataNameOrder: '["Komentar: ","Ime: "]',
       formGoogleSend: "",
       formGoogleSheetName: "responses"
@@ -174,7 +161,7 @@ function main() {
 
     mailXhr.open('POST', mailUrl);
     mailXhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    mailXhr.send(data); */
+    mailXhr.send(data);
 
     setTimeout(() => {
       location.href = "https://www.paypal.com/cgi-bin/webscr?" + URIencoder(queryStringParams);
