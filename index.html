@@ -25,7 +25,7 @@
 
   <style>
     html {
-      -webkit-tap-highlight-color: transparent;
+      tap-highlight-color: transparent;
       -ms-touch-action: manipulation;
       touch-action: manipulation;
     }
@@ -87,7 +87,7 @@
       border: 1px solid #D1D1D2;
       border-radius: 5px;
       -moz-box-shadow: #C8C8C8 0 5px 15px 2px;
-      -webkit-box-shadow: #C8C8C8 0 5px 15px 2px;
+      box-shadow: #C8C8C8 0 5px 15px 2px;
       -khtml-box-shadow: #C8C8C8 0 5px 15px 2px;
       box-shadow: 0 2px 5px #C8C8C8;
     }
@@ -121,7 +121,7 @@
       font-size: 18px;
       display: inline-block;
       border: 2px solid #999;
-      -webkit-border-radius: 5px;
+      border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
       padding: 5px 10px 5px 10px;
@@ -245,7 +245,7 @@
       padding: 5px 20px 5px 20px;
       border: 2px solid #999;
       color: #555555;
-      -webkit-border-radius: 5px;
+      border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
       margin: 5px;
@@ -348,8 +348,8 @@
     .rateME:hover {
       font-size: 30px;
       background: linear-gradient(to right, #50B748, #50B748, #52B348, #58A846, #5F9A45, #976872, #B05187, #AD519E, #AD519E, #AD519E, #865AA6, #6663AC, #4A69B2, #356FB6, #2672B9, #1E74BA, #1B75BB);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
     }
 
     .old {
@@ -469,6 +469,27 @@
         font-size: 10px;
       }
 
+    }
+
+    .coffee {
+      font-size: 16px;
+      animation: tiltCoffee 10s cubic-bezier(0.21, 0.88, 0.88, 1.15) infinite, blink 3s infinite;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes tiltCoffee {
+      2.5% {
+        transform: rotate(-25deg) scale(1.1);
+      }
+      3.5% {
+        transform: none;
+      }
+      5.5% {
+        transform: rotate(25deg) scale(1.2);
+      }
+      9.0% {
+        transform: none;
+      }
     }
   </style>
 
@@ -631,6 +652,7 @@
       class="downloadButton" target="_blank">Preuzmi proširenje</a>
     <a href="azuriran/" class="downloadButton" target="_blank" style="margin-left: 10px;">Posljednje
       ažuriranje <span style="color: red;">(dolazi uskoro)</span></a>
+    <a href="donacije/" class="downloadButton coffee" target="_blank" style="margin-left: 10px;">☕</a>
 
 
     <div class="slider">
