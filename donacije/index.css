@@ -74,32 +74,20 @@ a {
   padding-bottom: 25px;
 }
 
-@media (max-width: 1000px) {
+.quantity {
+  float: right;
+  width: 35%;
+  text-align: center;
+}
 
-  body {
-    background-color: white;
-    position: relative;
-    margin: 0;
-  }
+.amount.total {
+  width: 50%;
+  text-align: center;
+}
 
-  html,
-  body {
-    overflow-x: hidden;
-  }
-
-  .wrap {
-    width: unset;
-    margin: unset;
-    background-color: unset;
-    border: unset;
-    border-radius: unset;
-    box-shadow: unset;
-    border-bottom: 2px solid gray;
-  }
-
-  #footer {
-    font-size: 10px;
-  }
+.donationBox {
+  float: right;
+  width: 45%;
 }
 
 .box {
@@ -117,6 +105,10 @@ a {
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.whyDonate {
+  width: 45%;
 }
 
 .box div:not(:first-of-type) {
@@ -155,6 +147,40 @@ sup:hover .moreSup {
   left: 0;
   padding: 12px;
   transition: opacity 250ms, 250ms top, visibility 1ms 250ms;
+}
+
+@media (max-width: 1000px) {
+
+  body {
+    background-color: white;
+    position: relative;
+    margin: 0;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: unset;
+    margin: unset;
+    background-color: unset;
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    border-bottom: 2px solid gray;
+  }
+
+  #footer {
+    font-size: 10px;
+  }
+
+  .donationBox, .whyDonate {
+    float: none;
+    width: auto;
+  }
+
 }
 
 #amount {
@@ -301,7 +327,9 @@ textarea {
   from {
     opacity: 0;
     transform: translateY(-50px);
-  } to {
+  }
+
+  to {
     opacity: 1;
     transform: none;
   }
