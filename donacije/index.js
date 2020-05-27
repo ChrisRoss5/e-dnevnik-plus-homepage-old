@@ -79,15 +79,15 @@ function main() {
 
   function amountEdited() {
     let newAmount = parseInt(this.textContent.replace(/\D+/g, ""));
-    newAmount = newAmount <= 1000 && newAmount || 1000;
+    newAmount = newAmount <= 10000 && newAmount || 10000;
     this.textContent = newAmount;
-    total.textContent = newAmount * 3;
+    total.textContent = (newAmount * 1.35).toFixed(2);
   }
 
   function stepClicked() {
     let raise = this == stepUp;
     let currentAmount = parseInt(amount.textContent);
-    if (currentAmount > 999 && raise) {return false;}
+    if (currentAmount > 9999 && raise) {return false;}
 
     totalContainer.style.opacity = amount.style.opacity = 0;
     totalContainer.style.transform = "translateY(" + (raise ? "" : "-") + "10px)";
@@ -96,7 +96,7 @@ function main() {
     setTimeout(() => {
       let newAmount = parseInt(amount.textContent) + (raise ? 1 : -1);
       amount.textContent = newAmount;
-      total.textContent = newAmount * 3;
+      total.textContent = (newAmount * 1.35).toFixed(2);
       totalContainer.style.transition = amount.style.transition = "0ms";
       totalContainer.style.transform = "translateY(" + (raise ? "-" : "") + "10px)";
       amount.style.transform = "translateX(" + (raise ? "" : "-") + "10px)";
@@ -120,19 +120,22 @@ function main() {
 
     let queryStringParams = {
       image_url: "https://ednevnik.plus/assets/images/paypal-logo.png",
-      cmd: "_donations",
+      cmd: "_xclick",
       business: "kristijan.ros@gmail.com",
       amount: total.textContent,
       currency_code: "EUR",
+      item_name: "Kava: " + total.textContent,
       lc: "en-HR",
       custom: timestamp,
       charset: "utf-8",
       no_shipping: 1,
       no_note: 1,
-      return: "ednevnik.plus/donacije#hvala",
+      return: "https://ednevnik.plus/donacije#hvala",
       notify_url: "https://e-dnevnik-plus.firebaseapp.com/paypal-success",
       cancel_return: "https://ednevnik.plus/donacije"
     }
+
+    //location.href = "https://www.paypal.com/cgi-bin/webscr?" + URIencoder(queryStringParams);
 
     /* Firebase */
     let userInfoUrl = "https://e-dnevnik-plus.firebaseapp.com/pending-donations";
