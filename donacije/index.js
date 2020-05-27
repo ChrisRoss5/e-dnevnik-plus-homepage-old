@@ -10,6 +10,7 @@ function main() {
   let username = document.getElementById("username");
   let donateBtn = document.getElementsByClassName("donate")[0];
   let donationsContainer = document.getElementsByClassName("donations")[0];
+  let quantity = 1;
 
   stepDown.onclick = stepClicked;
   stepUp.onclick = stepClicked;
@@ -81,22 +82,32 @@ function main() {
     let newAmount = parseInt(this.textContent.replace(/\D+/g, ""));
     newAmount = newAmount <= 10000 && newAmount || 10000;
     this.textContent = newAmount;
-    total.textContent = (newAmount * 1.35).toFixed(2);
+    total.textContent = (newAmount * 10).toFixed(0);
   }
 
   function stepClicked() {
     let raise = this == stepUp;
     let currentAmount = parseInt(amount.textContent);
-    if (currentAmount > 9999 && raise) {return false;}
+
+    quantity = parseInt(amount.textContent) + (raise ? 1 : -1);
+
+    if (currentAmount > 9999 && raise) {
+      return false;
+    }
+    if (!raise && quantity < 1) {
+      quantity = 1;
+      return false;
+    }
 
     totalContainer.style.opacity = amount.style.opacity = 0;
     totalContainer.style.transform = "translateY(" + (raise ? "" : "-") + "10px)";
     amount.style.transform = "translateX(" + (raise ? "-" : "") + "10px)";
 
     setTimeout(() => {
-      let newAmount = parseInt(amount.textContent) + (raise ? 1 : -1);
+
+      let newAmount = quantity;
       amount.textContent = newAmount;
-      total.textContent = (newAmount * 1.35).toFixed(2);
+      total.textContent = (newAmount * 10).toFixed(0);
       totalContainer.style.transition = amount.style.transition = "0ms";
       totalContainer.style.transform = "translateY(" + (raise ? "-" : "") + "10px)";
       amount.style.transform = "translateX(" + (raise ? "" : "-") + "10px)";
@@ -122,9 +133,9 @@ function main() {
       image_url: "https://ednevnik.plus/assets/images/paypal-logo.png",
       cmd: "_xclick",
       business: "kristijan.ros@gmail.com",
-      amount: total.textContent,
+      amount: parseFloat(total.textContent) / 7.55,
       currency_code: "EUR",
-      item_name: "Kava: " + total.textContent,
+      item_name: "Broj kava: " + quantity,
       lc: "en-HR",
       custom: timestamp,
       charset: "utf-8",
