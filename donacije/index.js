@@ -24,13 +24,12 @@ function main() {
   }
 
   let donationsXhr = new XMLHttpRequest();
-  donationsXhr.responseType = 'json';
   donationsXhr.open("GET", "https://storage.googleapis.com/e-dnevnik-plus.appspot.com/donacije.json");
   donationsXhr.send();
   donationsXhr.onload = donationsLoaded;
 
   function donationsLoaded() {
-    let donations = donationsXhr.response;
+    let donations = donationsXhr.response && JSON.parse(donationsXhr.response);
     let keys = donations && Object.keys(donations).sort().reverse(), i = 0;
     if (!keys) {
       let empty = document.createElement("div");
