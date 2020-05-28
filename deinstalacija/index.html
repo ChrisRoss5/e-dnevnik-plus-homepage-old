@@ -291,6 +291,44 @@
       }
 
     }
+
+    .downloadButton {
+      color: black;
+      font-size: 18px;
+      display: inline-block;
+      border: 2px solid #999;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      padding: 5px 10px 5px 10px;
+    }
+
+    .downloadButton:hover {
+      animation: blink 3s infinite;
+    }
+
+    .coffee {
+      font-size: 16px;
+      animation: tiltCoffee 10s cubic-bezier(0.21, 0.88, 0.88, 1.15) infinite, blink 3s infinite;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes tiltCoffee {
+      2.5% {
+        transform: rotate(-25deg) scale(1.1);
+      }
+      3.5% {
+        transform: none;
+      }
+      5.5% {
+        transform: rotate(25deg) scale(1.2);
+      }
+      9.0% {
+        transform: none;
+      }
+    }
+
+
   </style>
 
   <script>
@@ -443,7 +481,6 @@
 
     <div class="bye">
       <div class="messageSent">Poslano!</div>
-
       <div style="font-size: 24px; padding-top: 35px; padding-bottom: 20px; text-align: center;">
         Hvala vam što ste koristili
         <a class="textLink"
@@ -472,6 +509,11 @@
           <a class="submit" type="submit">Pošalji</a>
         </div>
       </form>
+    </div>
+
+    <div style="text-align: center; margin-top: 80px;">
+      <a href="../donacije/" class="downloadButton coffee" target="_blank" style="padding: 9px;">
+        <div style="font-size: 30px;;">☕</div>Doniraj</a>
     </div>
 
     <br style="display: block; margin-bottom: 65px; content: ' ';">
