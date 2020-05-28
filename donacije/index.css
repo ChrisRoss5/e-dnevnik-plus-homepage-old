@@ -74,7 +74,7 @@ a {
   padding-bottom: 25px;
 }
 
-.quantity { 
+.quantity {
   float: right;
   width: 35%;
   text-align: center;
@@ -245,7 +245,7 @@ textarea {
   margin: 10px 0 3px;
   width: 100%;
   padding: 10px;
-  margin-bottom: 3px !important;
+  margin-bottom: 15px !important;
   font-style: italic;
   font-family: "Trebuchet MS", "Helvetica", sans-serif;
 }
