@@ -8,14 +8,16 @@ function main() {
   let totalContainer = document.getElementById("totalContainer");
   let comment = document.getElementById("comment");
   let username = document.getElementById("username");
-  let donateBtn = document.getElementsByClassName("donate")[0];
   let donationsContainer = document.getElementsByClassName("donations")[0];
+  let donatePaypal = document.getElementById("donate");
+  let donateIBAN = document.getElementById("iban");
   let quantity = 1;
 
   stepDown.onclick = stepClicked;
   stepUp.onclick = stepClicked;
   amount.oninput = amountEdited;
-  donateBtn.onclick = donate;
+  donatePaypal.onclick = donate;
+  donateIBAN.onclick = copyIban;
 
   if (location.hash.includes("hvala")) {
     let ty = document.getElementsByClassName("thanks")[0];
@@ -119,8 +121,70 @@ function main() {
     }, 350);
   }
 
+  function sendInputs() {
+    let mailUrl = "https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec";
+    let mailXhr = new XMLHttpRequest();
+    let data = URIencoder({
+      "Ime: ": username.value,
+      "Komentar: ": comment.value,
+      "Kava: ": amount.textContent,
+      formDataNameOrder: '["Kava: ","Komentar: ","Ime: "]',
+      formGoogleSend: "",
+      formGoogleSheetName: "responses"
+    });
+
+    mailXhr.open('POST', mailUrl);
+    mailXhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    mailXhr.send(data);
+  }
+
+  function copyIban() {
+    const iban = "HR1123400093112950706";
+
+    if (!navigator.clipboard) {
+      var textArea = document.createElement("textarea");
+      textArea.value = iban;
+
+      // Avoid scrolling to bottom
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+      return;
+    }
+
+    navigator.clipboard.writeText(iban).then(function() {
+      console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err);
+    });
+
+    donateIBAN.textContent = "Kopirano!";
+    donateIBAN.style.color = "green";
+    setTimeout(() => {
+      donateIBAN.textContent = "Kopiraj IBAN";
+      donateIBAN.style.color = "black";
+    }, 2000);
+
+    sendInputs();
+  }
 
   function donate() {
+    donatePaypal.removeEventListener("click", donate);
+
     let timestamp = Date.now();
     let overlay = document.createElement("div");
     overlay.className = "overlay";
@@ -160,21 +224,7 @@ function main() {
     userInfoXhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     userInfoXhr.send(userInfo);
 
-    /* Spreadsheet */
-    let mailUrl = "https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec";
-    let mailXhr = new XMLHttpRequest();
-    let data = URIencoder({
-      "Ime: ": username.value,
-      "Komentar: ": comment.value,
-      "Kava: ": amount.textContent,
-      formDataNameOrder: '["Kava: ","Komentar: ","Ime: "]',
-      formGoogleSend: "",
-      formGoogleSheetName: "responses"
-    });
-
-    mailXhr.open('POST', mailUrl);
-    mailXhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    mailXhr.send(data);
+    sendInputs();
 
     setTimeout(() => {
       location.href = "https://www.paypal.com/cgi-bin/webscr?" + URIencoder(queryStringParams);
