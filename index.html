@@ -25,7 +25,7 @@
 
   <style>
     html {
-      tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
       -ms-touch-action: manipulation;
       touch-action: manipulation;
     }
@@ -87,7 +87,6 @@
       border: 1px solid #D1D1D2;
       border-radius: 5px;
       -moz-box-shadow: #C8C8C8 0 5px 15px 2px;
-      box-shadow: #C8C8C8 0 5px 15px 2px;
       -khtml-box-shadow: #C8C8C8 0 5px 15px 2px;
       box-shadow: 0 2px 5px #C8C8C8;
     }
@@ -121,7 +120,6 @@
       font-size: 18px;
       display: inline-block;
       border: 2px solid #999;
-      border-radius: 5px;
       -moz-border-radius: 5px;
       border-radius: 5px;
       padding: 5px 10px 5px 10px;
@@ -349,7 +347,8 @@
       font-size: 30px;
       background: linear-gradient(to right, #50B748, #50B748, #52B348, #58A846, #5F9A45, #976872, #B05187, #AD519E, #AD519E, #AD519E, #865AA6, #6663AC, #4A69B2, #356FB6, #2672B9, #1E74BA, #1B75BB);
       background-clip: text;
-      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .old {
@@ -715,8 +714,8 @@
         <div class="availability">
           <div>Dostupno na:</div>
           <img src="assets/images/chrome-icon.png" title="Chrome" />
-          <img src="assets/images/opera-icon.png" title="Edge" />
-          <img src="assets/images/edge-icon.png" title="Opera" />
+          <img src="assets/images/opera-icon.png" title="Opera" />
+          <img src="assets/images/edge-icon.png" title="Edge" />
         </div>
         Klikom na <b>'Preuzmi proširenje'</b> otvara se Chrome Store<br>te se
         proširenje preuzima pritiskom na gumb <b>'Dodaj u Chrome'</b>.<br><br>
