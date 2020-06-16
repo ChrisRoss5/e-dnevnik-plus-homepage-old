@@ -27,11 +27,11 @@ function main() {
 
   let donationsXhr = new XMLHttpRequest();
   donationsXhr.open("GET", "https://storage.googleapis.com/e-dnevnik-plus.appspot.com/donacije.json");
-  /* donationsXhr.setRequestHeader('cache-control', 'no-cache, must-revalidate, post-check=0, pre-check=0');
+  donationsXhr.setRequestHeader('cache-control', 'no-cache, must-revalidate, post-check=0, pre-check=0');
   donationsXhr.setRequestHeader('cache-control', 'max-age=0');
   donationsXhr.setRequestHeader('expires', '0');
   donationsXhr.setRequestHeader('expires', 'Tue, 01 Jan 1980 1:00:00 GMT');
-  donationsXhr.setRequestHeader('pragma', 'no-cache'); */
+  donationsXhr.setRequestHeader('pragma', 'no-cache');
   donationsXhr.send();
   donationsXhr.onload = donationsLoaded;
 
