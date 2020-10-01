@@ -155,7 +155,7 @@
       width: 864px;
       position: relative;
       padding-top: 486px;
-      margin: 35px auto;
+      margin: 40px auto;
       box-shadow: 0 4px 8px #C8C8C8;
       border-radius: 8px;
     }
@@ -401,6 +401,7 @@
 
       .downloadButton {
         font-size: 30px;
+        margin-bottom: 20px !important;
       }
 
       .video {
@@ -466,6 +467,23 @@
         font-size: 10px;
       }
 
+      .downloadButton:nth-of-type(1) {
+        display: block !important;
+      }
+      
+      .downloadButton:nth-of-type(2) {
+        display: block !important;
+      }
+
+      .coffee {
+        font-size: 25px !important;
+        margin-left: 0 !important;
+      }
+
+      #teachers {
+
+        margin-left: 0 !important;
+      }
     }
 
     .coffee {
@@ -639,21 +657,7 @@
 </head>
 
 <body>
-  <div class="wrap"><!-- <div style="
-    font-weight: bold;
-    border: 2px dashed #f00;
-    color: #f00;
-    font-size: 18px;
-    width: 90%;
-    padding-top: 20px;
-    margin: 0 auto;
-    padding-bottom: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    background: #ff00000d;
-  ">U tijeku je nadogradnja početne stranice e-Dnevnika<div style="
-      font-size: 14px;
-  ">Ako ne možete ući u razred, privremeno onemogućite proširenje</div></div> -->
+  <div class="wrap">
     <div class="title">
       <a class="link" href="https://ocjene.skole.hr" target="_blank">e-Dnevnik</a>
       <span class="plus">Plus</span>
@@ -661,10 +665,11 @@
     <div class="subTitle">Proširenje za učenički/roditeljski e-Dnevnik</div>
     <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus/bcnccmamhmcabokipgjechdeealcmdbe"
       class="downloadButton" target="_blank">Preuzmi proširenje</a>
-    <a href="azuriran/" class="downloadButton" target="_blank" style="margin-left: 10px;">Posljednje
+    <a href="azuriran/" class="downloadButton" target="_blank">Posljednje
       ažuriranje <!-- <span style="color: red;">(dolazi uskoro)</span> --></a>
-    <a href="donacije/" class="downloadButton coffee" target="_blank" style="margin-left: 10px;">☕</a><br>
-    <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus-za-nastavn/jefappmpehdgllijkjpekdmkbmbigbnl" class="downloadButton" target="_blank" style="margin-left: 10px; margin-top: 10px;">Za nastavnike</a>
+    <a href="https://chrome.google.com/webstore/detail/e-dnevnik-plus-za-nastavn/jefappmpehdgllijkjpekdmkbmbigbnl" class="downloadButton" target="_blank" style="margin-left: 30px;" id="teachers">Za nastavnike</a>
+    <a href="skole/" class="downloadButton">Za škole</a>
+    <a href="donacije/" class="downloadButton coffee" style="margin-left: 30px;" target="_blank">☕</a><br>
 
 
     <div class="slider">
