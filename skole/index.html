@@ -510,7 +510,7 @@
       for (let i = 0; i < 3; i++) {
         if (i != 2) {
           downloads[i].addEventListener("click", () => {
-            alert("Program će biti objavljen na Chrome web-trgovini uskoro!");
+            // alert("Program će biti objavljen na Chrome web-trgovini uskoro!");
           });
         }
         elementVisible(downloads[i]);
@@ -638,9 +638,9 @@
         <a class="link" target="_blank" href="../docs/dokumentacija-skole.pdf">
           https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
         programi nalaze se ispod.<br>Instalacija je gotova u manje od 10 minuta!
-        <br>Za više informacija kad projekt započne, obavijestit ću vas emailom.</div>
+        <!-- <br>Za više informacija kad projekt započne, obavijestit ću vas emailom. --></div>
 
-      <div class="sign-up-container">
+      <div class="sign-up-container" style="display: none;">
         <div class="envelope">
           <div class="paper">
             <form class="sign-up-form" action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST">
@@ -654,9 +654,9 @@
 
       <hr class="sexyLine">
 
-      <a class="open" href="javascript:;" style="transform: translateX(100px);">Preuzmi e-Dnevnik Plus za
+      <a class="open" href="https://chrome.google.com/webstore/detail/jmklbijppioddcmdnnobpgkalfmiajjl" style="transform: translateX(100px);" target="_blank">Preuzmi e-Dnevnik Plus za
         škole</a>
-      <a class="open" href="javascript:;" style="transform: translateX(-100px);">Preuzmi e-Dnevnik Plus API</a>
+      <a class="open" href="https://chrome.google.com/webstore/detail/mhcfaidlgkcmnjhjffbaejpbmfchmgle" style="transform: translateX(-100px);" target="_blank">Preuzmi e-Dnevnik Plus API</a>
       <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank" style="transform: translateX(100px);">Preuzmi Arduino program</a>
 
       <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a class="link" target="_blank" href="../prijenos">
