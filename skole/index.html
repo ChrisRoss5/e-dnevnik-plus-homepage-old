@@ -528,25 +528,25 @@
         var elements = form.elements;
         var honeypot;
 
-        var fields = Object.keys(elements).filter(function (k) {
+        var fields = Object.keys(elements).filter(function(k) {
           if (elements[k].name === "honeypot") {
             honeypot = elements[k].value;
             return false;
           }
           return true;
-        }).map(function (k) {
+        }).map(function(k) {
           if (elements[k].name !== undefined) {
             return elements[k].name;
 
           } else if (elements[k].length > 0) {
             return elements[k].item(0).name;
           }
-        }).filter(function (item, pos, self) {
+        }).filter(function(item, pos, self) {
           return self.indexOf(item) == pos && item;
         });
 
         var formData = {};
-        fields.forEach(function (name) {
+        fields.forEach(function(name) {
           var element = elements[name];
           formData[name] = element.value;
           if (element.length) {
@@ -584,7 +584,7 @@
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        var encoded = Object.keys(data).map(function (k) {
+        var encoded = Object.keys(data).map(function(k) {
           return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
         }).join('&');
         xhr.send(encoded);
@@ -630,27 +630,21 @@
       <img src="info-stup.png" style="padding-left: 65px; width: 240px;" align="right" />
       <div class="contentDescr"><i>e-Dnevnik Plus za škole</i> posebna je verzija <i>proširenja e-Dnevnik
           Plus</i>, namijenjena svim učenicima unutar
-        njihove osnovne ili srednje škole. Cilj je pružiti brz i jednostavan pregled ocjena pomoću info-stupova.
-        Uz sve
-        mogućnosti osnovnog proširenja, e-Dnevnik Plus za škole prilagođen je zaslonima osjetljivim na dodir i
-        pruža
-        dodatne razine sigurnosti.</div>
+        njihove osnovne ili srednje škole. Cilj je pružiti brz i jednostavan pregled ocjena pomoću info-stupova. Uz većinu mogućnosti osnovnog proširenja, e-Dnevnik Plus za škole prilagođen je zaslonima osjetljivim na dodir i pruža dodatne razine sigurnosti.</div>
 
       <div class="contentTitle">Škola ste i želite se priključiti?</div>
       <div class="contentDescr" style="text-align: left;">Na pravome ste mjestu! Dokumentacija i upute za
         instalaciju nalaze se ovdje:
         <a class="link" target="_blank" href="../docs/dokumentacija-skole.pdf">
-          https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br
-          style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
+          https://ednevnik.plus/docs/dokumentacija-skole.pdf</a> <br style="display: block; margin-bottom: 10px; content: ' ';">Svi potrebni
         programi nalaze se ispod.<br>Instalacija je gotova u manje od 10 minuta!
-      <br>Za više informacija kad projekt započne, obavijestit ću vas emailom.</div>
+        <br>Za više informacija kad projekt započne, obavijestit ću vas emailom.</div>
 
       <div class="sign-up-container">
         <div class="envelope">
           <div class="paper">
-            <form class="sign-up-form" action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec"
-            method="POST">
-              <input required type="email" placeholder="Email" class="text-input" name="Zainteresiran za e-Dnevnik Plus u školama: "/>
+            <form class="sign-up-form" action="https://script.google.com/macros/s/AKfycbw5Fs3Y-Ht3Cs3PMdQhpUW_-Xd_poar4w5C3ae1SmNnfTIUKbwm/exec" method="POST">
+              <input required type="email" placeholder="Email" class="text-input" name="Zainteresiran za e-Dnevnik Plus u školama: " />
               <button type="submit" class="button">Zainteresiran sam!</button>
             </form>
           </div>
@@ -663,15 +657,12 @@
       <a class="open" href="javascript:;" style="transform: translateX(100px);">Preuzmi e-Dnevnik Plus za
         škole</a>
       <a class="open" href="javascript:;" style="transform: translateX(-100px);">Preuzmi e-Dnevnik Plus API</a>
-      <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank"
-        style="transform: translateX(100px);">Preuzmi Arduino program</a>
+      <a download class="open" href="arduino/RFID-TAG-communicator.ino" target="_blank" style="transform: translateX(100px);">Preuzmi Arduino program</a>
 
-      <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a class="link"
-          target="_blank" href="../prijenos">
+      <div class="contentDescr" id="manual">Korisničke podatke je moguće prenijeti i manualno s: <br><a class="link" target="_blank" href="../prijenos">
           https://ednevnik.plus/prijenos</a>
       </div>
-      <div class="contentDescr" style="margin-bottom: 65px; text-align: center;">Podrška: <a class="link"
-          href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
+      <div class="contentDescr" style="margin-bottom: 65px; text-align: center;">Podrška: <a class="link" href="mailto:kristijan.ros@gmail.com?subject=e-Dnevnik Plus — Kontakt">
           kristijan.ros@gmail.com</a> | <a class="link" href="../">
           Povratak na naslovnu</a> </div>
     </div>
